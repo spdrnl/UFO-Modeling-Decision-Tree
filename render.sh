@@ -1,0 +1,1 @@
+mmdc -i ufo-decision-tree.mermaid -o ufo-decision-tree.png -p <(echo '{"args": ["--no-sandbox", "--disable-setuid-sandbox"]}') -w 3200
