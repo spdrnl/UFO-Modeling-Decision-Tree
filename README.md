@@ -13,7 +13,7 @@ Just open the ufo-decision-tree.png file
 For rendering the mmdc mermaid cli tool is used. See render.sh for more information.
 
 ## Issues
-Preferably the tree should be rendered as plain SVG and openable in Inkscape. This is not working yet.
+Preferably the tree should be rendered as plain SVG and be openable in Inkscape. This is not working yet.
 
 ## Contributing
 Contributions are welcome! Please submit a pull request with your changes.
