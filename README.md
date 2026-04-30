@@ -2,7 +2,7 @@ UFO Modeling Decision Tree
 ==========================
 This project aims to help novices to get up to speed with UFO modeling. The project contains a decision tree that helps to decide which UFO entity to choose.
 
-Since I am a novice myself, I am not sure if this decision tree is correct or complete. It should though give a good overview of the different UFO entities. so that you can get a feel for the different options.
+Since I am a novice myself, I am not sure if this decision tree is correct or complete. The aim is to give a good overview of the different UFO entities. so that you can get a feel for the different options. The focus for now is on UFO-A and UFO-B.
 
 ## Getting Started
 Just open the ufo-decision-tree.png file
