@@ -28,18 +28,13 @@ flowchart TD
     E1 -->|Yes| S0[Substantial \ntype]
     E1 -->|No| M0[Moment \ntype]
 
-    EM --> E2{Relator \nor \nextrinsic mode?}
-    E2 -->|Relator| RL[Relator \ntype]
-    E2 -->|Extrinsic mode| XM[Extrinsic \nmode type]
-
-    %% MOMENT TYPES (REFINED – QUALITY BRANCH WITH VALUE SPACES)
-    M0 --> M1{Intrinsic/\nextrinsic\nmoment?}
+    M0 --> M1{Intrinsic \nor \nRelator?}
     M1 -->|Intrinsic| IM[Intrinsic \nmoment \ntype]
-    M1 -->|Extrinsic| EM[Extrinsic \nmoment \ntype]
+    M1 -->|Relator| RL[Relator \ntype]
 
     IM --> Q0{Quality \nor \nmode?}
     Q0 -->|Quality| QL[Quality \ntype]
-    Q0 -->|Mode| MD[Intrinsic mode/\ndisposition type]
+    Q0 -->|Mode| MD[Mode / \nDisposition type]
 
     %% Simple clarification of mode kinds (no extra diamonds)
     MD --> MDN((Mode as \nway-of-being))
@@ -61,21 +56,28 @@ flowchart TD
     QNOM --> VSN_ex
 
     %% SUBSTANTIAL TYPES
-    S0 --> S1{Rigid?}
-    S1 -->|Yes| RG{Rigid sortal \nor rigid \nmixin?}
-    S1 -->|No| D0{Relationally\ndependent?}
+    S0 --> SS{Sortal?}
+    SS -->|Yes| S1{Rigid?}
+    SS -->|No| M_X{Rigid?}
 
-    RG -->|Rigid sortal| RS{Ultimate \nsortal \nor \nsubkind?}
-    RS -->|Subkind| SK[Subkind]
-    RS -->|Ultimate sortal| US{Object/\ncollective/\nquantity?}
+    %% Sortals
+    S1 -->|Yes| RG{Ultimate \nsortal \nor \nsubkind?}
+    S1 -->|No| DR{Relationally\ndependent?}
+
+    RG -->|Subkind| SK[Subkind]
+    RG -->|Ultimate sortal| US{Object/\ncollective/\nquantity?}
     US -->|Object| KND[Kind]
     US -->|Collective| COL[Collective]
     US -->|Quantity| QTY[Quantity]
 
-    RG -->|Rigid mixin| CAT[Category]
+    DR -->|Yes| RO[Role]
+    DR -->|No| PH[Phase]
 
-    D0 -->|Yes| RO[Role]
-    D0 -->|No| PH[Phase]
+    %% Mixins
+    M_X -->|Yes| CAT[Category]
+    M_X -->|No| M_DX{Relationally\ndependent?}
+    M_DX -->|Yes| RMX[RoleMixin]
+    M_DX -->|No| PMX[PhaseMixin]
 
     %% PERDURANT TYPES
     P0 --> P1{Atomic \nor \ncomplex?}
@@ -121,59 +123,63 @@ flowchart TD
     QN_ex([e.g., bank balance,\ninterest rate]):::example
     QN --> QN_ex
 
-    XM_ex("e.g., Ownership status"):::example
-    XM --> XM_ex
-
     MDN_ex("e.g., being fragile,\nbeing obliged"):::example
     MDN --> MDN_ex
     MDV_ex("e.g., obligation with\namount & due date"):::example
     MDV --> MDV_ex
 
     %% Substantial types
-    KND_ex("e.g., Person, Car"):::example
+    KND_ex("e.g., Car, Tree"):::example
     KND --> KND_ex
 
-    SK_ex("e.g., Man, Woman"):::example
+    SK_ex("e.g., MountainBike, Sedan"):::example
     SK --> SK_ex
 
-    COL_ex("e.g., FootballTeam"):::example
+    COL_ex("e.g., Forest, DeckOfCards"):::example
     COL --> COL_ex
 
     QTY_ex("e.g., Water, Beer"):::example
     QTY --> QTY_ex
 
-    CAT_ex("e.g., Agent"):::example
+    CAT_ex("e.g., Physical Object"):::example
     CAT --> CAT_ex
 
-    RO_ex("e.g., Student, Employee"):::example
+
+    RMX_ex("e.g., Target (can be\na Building or a Vehicle)"):::example
+    RMX --> RMX_ex
+
+    PMX_ex("e.g., UnderRepair"):::example
+    PMX --> PMX_ex
+
+    RO_ex("e.g., RentalCar, SparePart"):::example
     RO --> RO_ex
 
-    PH_ex("e.g., Child, Adult"):::example
+    PH_ex("e.g., RipeFruit, NewCar"):::example
     PH --> PH_ex
 
     %% Perdurant types
-    EV_ex("e.g., Purchase event"):::example
+    EV_ex("e.g., Car collision"):::example
     EV --> EV_ex
 
     FR_ex("e.g., isOlderThan"):::example
     FR --> FR_ex
 
     %% Material relation (needs relator)
-    MR_ex["e.g., isMarriedTo,\nworksFor"]:::example
+    MR_ex["e.g., isPartOf, isConnectedTo"]:::example
     MR --> MR_ex
 
     %% Derived material relation (explicitly from relator)
-    MRD_ex["e.g., isMarriedTo\nderived from Marriage"]:::example
+    MRD_ex["e.g., isPartOf\nderived from Composition"]:::example
     MRD --> MRD_ex
 
     %% Relator only (you don't model isMarriedTo separately)
-    RLE_ex["e.g., Marriage used\nwithout isMarriedTo"]:::example
+    RLE_ex["e.g., Connection\nwithout isConnectedTo"]:::example
     RLE --> RLE_ex
 
-    RT_ex["e.g., Marriage\nfor isMarriedTo"]:::example
+    RT_ex["e.g., Connection\nfor isConnectedTo"]:::example
     RT --> RT_ex
 
-    ACT_ex("e.g., hiring,\ntraveling"):::example
+    ACT_ex("e.g., acceleration,\nbraking"):::example
     ACT --> ACT_ex
 
     PRC_ex("e.g., erosion,\ndigestion"):::example
@@ -207,7 +213,7 @@ flowchart TD
 
     %% subtree colors
     class P0,P1,EV,C0,ACT,PRC perdurant;
-    class COL,D0,S0,S1,RG,KND,SK,RO,PH,US,RS,QTY substantial;
-    class CAT categoryDashed;
-    class M0,M1,IM,EM,Q0,QL,MD,Q2,QP,QN,QNOM,E2,VS,VSN,MD,MV,MDN,MDV intrinsic;
-    class FR,R0,RL,RM,MRD,MR,RLE,RT,XM relator;
+    class COL,DR,S0,SS,S1,RG,KND,SK,RO,PH,US,RS,QTY substantial;
+    class CAT,RMX,PMX,M_X,M_DX categoryDashed;
+    class M0,M1,IM,Q0,QL,MD,Q2,QP,QN,QNOM,VS,VSN,MD,MV,MDN,MDV intrinsic;
+    class FR,R0,RL,RM,MRD,MR,RLE,RT relator;
