@@ -1,15 +1,17 @@
 flowchart TD
-    R0{What kind of \nrelation?}
+    R0{"Relation \nor association?"}
+    R1{"Domain \nor part-whole \nrelation?"}
 
     %% MAIN CATEGORIES
-    R0 --> DR[Domain \nRelations]
-    R0 --> PW[Part-Whole \nRelations]
+    R0 --> R1
+    R1 --> DR[Domain \nRelations]
+    R1 --> PW[Part-Whole \nRelations]
     R0 --> FA[Fundamental \nAssociations]
 
     %% DOMAIN RELATIONS
-    DR --> DR1{Does it depend \non intrinsic \nproperties only?}
+    DR --> DR1{Relation depends \non intrinsic \nproperties only?}
     DR1 -->|Yes| FOR[Formal \nrelation]
-    DR1 -->|No| MAT{Relator or \nderived material relation?}
+    DR1 -->|No| MAT{Relator \nor derived \nmaterial relation?}
 
     MAT --> RL[Relator \ntype]
     RL_ex("e.g., Marriage, \nEmployment, \nEnrollment"):::example
@@ -76,11 +78,9 @@ flowchart TD
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
     classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
     classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
-    classDef note fill:#dbeafe,stroke:#2563eb,stroke-width:1px,stroke-dasharray: 3 3,color:#000,font-size:9px;
 
     %% Apply styles
     class R0,DR1,PW1,MAT,FA1 generic;
     class DR,FOR,MR,RL relator;
     class PW,CPO,MBO,SCO,SQO,CON meronymic;
     class FA,CHAR,MED,DER,STRU fundamental;
-    class NOTE1,NOTE2,NOTE3,NOTE4 note;

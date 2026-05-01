@@ -11,62 +11,99 @@ flowchart TD
     IE -->|Substantial| IES[Substantial individual]
     IE -->|Moment| IEM{One bearer \nor \nmany?}
 
+    IEM -->|Many| ROA{"Relation \nor association?"}
     IEM -->|One| IIM[Intrinsic moment individual]
-    IEM -->|Many| IRL[Relator individual]
+    ROA --> DOPR{"Domain \nor part-whole \nrelation?"}
+    ROA --> FA["Fundamental \nAssociation"]
+    FA_ex --> FA
+    FA_ex("Engine \ncomponentOf Car,\nTree memmberOf Forest,\nWater subQuantityOf Ocean"):::example
+
+    %% MAIN CATEGORIES
+    DOPR --> DR[Domain \nRelation]
+    DOPR --> PW[Part-Whole \nRelation]
 
     %% TYPES – UNARY (CONCEPTS)
     T0 -->|Unary| U0{1st-order \nor \nhigher?}
-    T0 -->|Binary| R0{Direct \nor via \nrelator?}
+    T0 -->|Binary| R0{"Relation\nor\nassociation?"}
+
+    R0 --> TR1{"Domain \nor part-whole \nrelation?"}
+    TR1 --> TDR[Domain \nRelations]
+    TR1 --> TPW[Part-Whole \nRelations]
+    R0 --> TFA[Fundamental \nAssociations]
 
     U0 -->|Higher| UH[Higher-order \ntype]
     U0 -->|1st-order| U1{Endurant \nor \nperdurant?}
 
-    U1 -->|Endurant| E0[Endurant \ntype]
-    U1 -->|Perdurant| P0[Perdurant \ntype]
+    U1 --> E0[Endurant \ntype]
+    U1 --> P0[Perdurant \ntype]
 
     E0 --> E1{Independent?}
     E1 -->|Yes| S0[Substantial \ntype]
     E1 -->|No| M0[Moment \ntype]
 
-    %% EXAMPLE BOXES + LINKS (Remaining)
+    %% EXAMPLE BOXES + LINKS
     IP_ex("e.g., this specific meeting"):::example
     IP --> IP_ex
 
     IES_ex("e.g., John, Mary,\nthis apple"):::example
     IES --> IES_ex
 
-    IIM_ex("e.g., John’s height"):::example
+    IIM_ex("e.g., John’s Height"):::example
     IIM --> IIM_ex
 
     IRL_ex("e.g., Mary-John marriage"):::example
     IRL --> IRL_ex
 
+    %% NEW EXAMPLES
+    P0_ex("e.g., Traveling, erosion"):::example
+    P0 --> P0_ex
+
+    DR_ex("e.g., Marriagem, isMarriedTo"):::example
+    DR --> DR_ex
+
+    PW_ex("e.g., Engine componentOf Car,\n Tree memberOf Forest"):::example
+    PW --> PW_ex
+
+    S0_ex("e.g., Table, Spoon, Furniture"):::example
+    S0 --> S0_ex
+
+    M0_ex("e.g., Color, Skill, ISBN"):::example
+    M0 --> M0_ex
+
     %% CLASSES
     classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff,font-size:10px;
     classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
     classDef perdurant fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#000;
-    classDef substantial fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#000;
+    classDef substantial fill:#dcfce7,stroke:#dcfce7,stroke-width:2px,color:#000;
     classDef intrinsic fill:#ffedd5,stroke:#fb923c,stroke-width:2px,color:#000;
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
+    classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
+    classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
 
-    classDef indivGeneric fill:#f3f4f6,stroke:#666,stroke-width:2px,color:#000;
-    classDef indivPerdurant fill:#f3f4f6,stroke:#2563eb,stroke-width:2px,color:#000;
-    classDef indivSubstantial fill:#f3f4f6,stroke:#16a34a,stroke-width:2px,color:#000;
-    classDef indivIntrinsic fill:#f3f4f6,stroke:#fb923c,stroke-width:2px,color:#000;
-    classDef indivRelator fill:#f3f4f6,stroke:#ea580c,stroke-width:2px,color:#000;
+    classDef indivGeneric fill:#ffffff,stroke:#666,stroke-width:2px,color:#000;
+    classDef indivPerdurant fill:#aaaaaa,stroke:#2563eb,stroke-width:2px,color:#000;
+    classDef indivSubstantial fill:#aaaaaa,stroke:#16a34a,stroke-width:2px,color:#000;
+    classDef indivIntrinsic fill:#aaaaaa,stroke:#fb923c,stroke-width:2px,color:#000;
+    classDef indivRelator fill:#aaaaaa,stroke:#ea580c,stroke-width:2px,color:#000;
+    classDef indivMeronymic fill:#aaaaaa,stroke:#eab308,stroke-width:2px,color:#000;
+    classDef indivFundamental fill:#aaaaaa,stroke:#a855f7,stroke-width:2px,color:#000;
 
     %% individual branch
     class I0,IE,IEM indivGeneric;
     class IP indivPerdurant;
     class IES indivSubstantial;
     class IIM indivIntrinsic;
-    class IRL indivRelator;
+    class DR indivRelator;
+    class PW indivMeronymic;
+    class FA indivFundamental;
+    class TFA fundamental;
+    class TPW meronymic;
+    class TDR relator;
 
     %% generic / neutral nodes
-    class A,B,T0,U0,U1,UH,E0,E1 generic;
+    class A,B,T0,U0,U1,UH,E0,E1,R0 generic;
 
     %% leaf colors
     class P0 perdurant;
     class S0 substantial;
     class M0 intrinsic;
-    class R0 relator;
