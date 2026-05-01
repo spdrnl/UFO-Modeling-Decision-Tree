@@ -17,17 +17,17 @@ flowchart TD
     ROA --> FA["Fundamental \nAssociation"]
 
     %% MAIN CATEGORIES
-    DOPR --> DR[Domain \nRelation]
-    DOPR --> PW[Part-Whole \nRelation]
+    DOPR --> DR[Domain \nrelation]
+    DOPR --> PW[Part-whole \nrelation]
 
     %% TYPES – UNARY (CONCEPTS)
     T0 -->|Unary| U0{1st-order \nor \nhigher?}
     T0 -->|Binary| R0{"Relation\nor\nassociation?"}
 
     R0 --> TR1{"Domain \nor part-whole \nrelation?"}
-    TR1 --> TDR[Domain \nRelations]
-    TR1 --> TPW[Part-Whole \nRelations]
-    R0 --> TFA[Fundamental \nAssociations]
+    TR1 --> TDR[Domain \nrelation]
+    TR1 --> TPW[Part-Whole \nrelation]
+    R0 --> TFA[Fundamental \nassociation]
 
     TDR --> TDR_ex("e.g., isMarriedTo, worksFor"):::example
     TPW --> TPW_ex("e.g., Engine componentOf Car, \nTree memberOf Forest"):::example
