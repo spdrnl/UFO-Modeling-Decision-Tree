@@ -15,8 +15,6 @@ flowchart TD
     IEM -->|One| IIM[Intrinsic moment individual]
     ROA --> DOPR{"Domain \nor part-whole \nrelation?"}
     ROA --> FA["Fundamental \nAssociation"]
-    FA_ex --> FA
-    FA_ex("Engine \ncomponentOf Car,\nTree memmberOf Forest,\nWater subQuantityOf Ocean"):::example
 
     %% MAIN CATEGORIES
     DOPR --> DR[Domain \nRelation]
@@ -31,6 +29,10 @@ flowchart TD
     TR1 --> TPW[Part-Whole \nRelations]
     R0 --> TFA[Fundamental \nAssociations]
 
+    TDR --> TDR_ex("e.g., isMarriedTo, worksFor"):::example
+    TPW --> TPW_ex("e.g., Engine componentOf Car, \nTree memberOf Forest"):::example
+    TFA --> TFA_ex("e.g., Person characterizedBy Age, \nMarriage mediates Person"):::example
+
     U0 -->|Higher| UH[Higher-order \ntype]
     U0 -->|1st-order| U1{Endurant \nor \nperdurant?}
 
@@ -42,32 +44,35 @@ flowchart TD
     E1 -->|No| M0[Moment \ntype]
 
     %% EXAMPLE BOXES + LINKS
-    IP_ex("e.g., this specific meeting"):::example
+    IP_ex("e.g., Meeting,\nFlight,\nSurgery"):::example
     IP --> IP_ex
 
-    IES_ex("e.g., John, Mary,\nthis apple"):::example
+    IES_ex("e.g., John,\nMary,\nthis apple"):::example
     IES --> IES_ex
 
     IIM_ex("e.g., John’s Height"):::example
     IIM --> IIM_ex
 
-    IRL_ex("e.g., Mary-John marriage"):::example
-    IRL --> IRL_ex
+    IRL_ex("e.g., Mary-John\nmarriage"):::example
+    DR --> IRL_ex
 
     %% NEW EXAMPLES
-    P0_ex("e.g., Traveling, erosion"):::example
+    P0_ex("e.g., Traveling,\nErosion"):::example
     P0 --> P0_ex
 
-    DR_ex("e.g., Marriagem, isMarriedTo"):::example
+    DR_ex("e.g., isMarriedTo,\nMarriage,\nworksFor"):::example
     DR --> DR_ex
 
-    PW_ex("e.g., Engine componentOf Car,\n Tree memberOf Forest"):::example
+    PW_ex("e.g., Engine componentOf Car, \nTree memberOf Forest"):::example
     PW --> PW_ex
 
-    S0_ex("e.g., Table, Spoon, Furniture"):::example
+    FA_ex("e.g., Person characterizedBy Age, \nMarriage mediates Person"):::example
+    FA --> FA_ex
+
+    S0_ex("e.g., Table,\nSpoon,\nFurniture"):::example
     S0 --> S0_ex
 
-    M0_ex("e.g., Color, Skill, ISBN"):::example
+    M0_ex("e.g., Color,\nSkill,\nISBN"):::example
     M0 --> M0_ex
 
     %% CLASSES
