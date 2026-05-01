@@ -1,21 +1,29 @@
 flowchart TD
-    R0{"Domain or\npart-whole\nrelation?"}
+    R0{What kind of \nrelation?}
 
     %% MAIN CATEGORIES
     R0 --> DR[Domain \nRelations]
     R0 --> PW[Part-Whole \nRelations]
+    R0 --> FA[Fundamental \nAssociations]
 
     %% DOMAIN RELATIONS
     DR --> DR1{Does it depend \non intrinsic \nproperties only?}
     DR1 -->|Yes| FOR[Formal \nrelation]
-    DR1 -->|No| MAT{Model as \nrelator or \n derived relation?}
+    DR1 -->|No| MAT{Relator or \nderived material relation?}
 
-    MAT -->|Relator| RL[Relator \ntype]
+    MAT --> RL[Relator \ntype]
     RL_ex("e.g., Marriage, \nEmployment, \nEnrollment"):::example
     RL --> RL_ex
-    MAT -->|Derived relation| MR[Material \nrelation]
+    MAT --> MR[Material \nrelation]
 
-    RL -.->|can derive| MR
+    MR -.->|derives via| RL
+
+    %% FUNDAMENTAL ASSOCIATIONS
+    FA --> FA1{What does it \nconnect?}
+    FA1 -->|Bearer to moment| CHAR[Characterization]
+    FA1 -->|Relator to entities| MED[Mediation]
+    FA1 -->|Material relation to relator| DER[Derivation]
+    FA1 -->|Quality to quality structure| STRU[Structuration]
 
     %% PART-WHOLE
     PW --> PW1{What type \nof whole?}
@@ -27,11 +35,24 @@ flowchart TD
     PW1 -->|Other| CON[Containment]
 
     %% EXAMPLES - Formal Relations
-    FOR_ex("e.g., isTallerThan, \nisBetween"):::example
+    FOR_ex("e.g., isTallerThan, \nisBetween, \ninstanceOf"):::example
     FOR --> FOR_ex
 
     MR_ex("e.g., isMarriedTo, \nworksFor, \nisEnrolledIn"):::example
     MR --> MR_ex
+
+    %% EXAMPLES - Fundamental Associations
+    CHAR_ex("e.g., Person \ncharacterizedBy Age, \nCar characterizedBy Color"):::example
+    CHAR --> CHAR_ex
+
+    MED_ex("e.g., Marriage \nmediates Person, \nEmployment mediates Employee"):::example
+    MED --> MED_ex
+
+    DER_ex("e.g., isMarriedTo \nderives from Marriage"):::example
+    DER --> DER_ex
+
+    STRU_ex("e.g., Weight quality \nstructuredBy Mass domain"):::example
+    STRU --> STRU_ex
 
     %% EXAMPLES - Part-Whole
     CPO_ex("e.g., Engine \ncomponentOf Car, \nHeart componentOf Body"):::example
@@ -54,10 +75,12 @@ flowchart TD
     classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
     classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
+    classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
     classDef note fill:#dbeafe,stroke:#2563eb,stroke-width:1px,stroke-dasharray: 3 3,color:#000,font-size:9px;
 
     %% Apply styles
-    class R0,DR1,PW1,MAT generic;
+    class R0,DR1,PW1,MAT,FA1 generic;
     class DR,FOR,MR,RL relator;
     class PW,CPO,MBO,SCO,SQO,CON meronymic;
-    class NOTE1,NOTE2,NOTE3,NOTE4,NOTE5 note;
+    class FA,CHAR,MED,DER,STRU fundamental;
+    class NOTE1,NOTE2,NOTE3,NOTE4 note;
