@@ -1,219 +1,59 @@
 flowchart TD
-    A[Start term] --> B{Individual \nor \nuniversal?}
+    R0{"Domain or\npart-whole\nrelation?"}
 
-    %% INDIVIDUALS
-    B -->|Individual| I0{Endurant \nor \nperdurant?}
-    B -->|Universal| T0{Unary \nor \nbinary?}
+    %% MAIN CATEGORIES
+    R0 --> DR[Domain \nRelations]
+    R0 --> PW[Part-Whole \nRelations]
 
-    I0 -->|Endurant| IE{Substantial \nor \nmoment?}
-    I0 -->|Perdurant| IP[Event/\nactivity/\nprocess \nindividual]
+    %% DOMAIN RELATIONS
+    DR --> DR1{Does it depend \non intrinsic \nproperties only?}
+    DR1 -->|Yes| FOR[Formal \nrelation]
+    DR1 -->|No| MAT{Model as \nrelator or \n derived relation?}
 
-    IE -->|Substantial| IES[Substantial individual]
-    IE -->|Moment| IEM{One bearer \nor \nmany?}
+    MAT -->|Relator| RL[Relator \ntype]
+    RL_ex("e.g., Marriage, \nEmployment, \nEnrollment"):::example
+    RL --> RL_ex
+    MAT -->|Derived relation| MR[Material \nrelation]
 
-    IEM -->|One| IIM[Intrinsic moment individual]
-    IEM -->|Many| IRL[Relator individual]
+    RL -.->|can derive| MR
 
-    %% TYPES – UNARY (CONCEPTS)
-    T0 -->|Unary| U0{1st-order \nor \nhigher?}
-    T0 -->|Binary| R0{Direct \nor via \nrelator?}
+    %% PART-WHOLE
+    PW --> PW1{What type \nof whole?}
 
-    U0 -->|Higher| UH[Higher-order \ntype]
-    U0 -->|1st-order| U1{Endurant \nor \nperdurant?}
+    PW1 -->|Functional complex| CPO[ComponentOf]
+    PW1 -->|Collective| MBO[MemberOf]
+    PW1 -->|Collection| SCO[SubCollectionOf]
+    PW1 -->|Quantity| SQO[SubQuantityOf]
 
-    U1 -->|Endurant| E0[Endurant \ntype]
-    U1 -->|Perdurant| P0[Perdurant \ntype]
+    %% EXAMPLES - Formal Relations
+    FOR_ex("e.g., isTallerThan, \nisBetween"):::example
+    FOR --> FOR_ex
 
-    E0 --> E1{Independent?}
-    E1 -->|Yes| S0[Substantial \ntype]
-    E1 -->|No| M0[Moment \ntype]
-
-    M0 --> M1{Intrinsic \nor \nRelator?}
-    M1 -->|Intrinsic| IM[Intrinsic \nmoment \ntype]
-    M1 -->|Relator| RL[Relator \ntype]
-
-    IM --> Q0{Quality \nor \nmode?}
-    Q0 -->|Quality| QL[Quality \ntype]
-    Q0 -->|Mode| MD[Mode / \nDisposition type]
-
-    %% Simple clarification of mode kinds (no extra diamonds)
-    MD --> MDN((Mode as \nway-of-being))
-    MD --> MDV((Mode with \nparameters))
-
-    %% First, classify quality kind
-    QL --> Q2{Perceivable/\nnon-perceivable/\nnominal?}
-    Q2 -->|Perceivable| QP[Perceivable \nquality type]
-    Q2 -->|Non-perceivable| QN[Non-perceivable \nquality type]
-    Q2 -->|Nominal| QNOM[Nominal \nquality type]
-
-    %% Then, choose how this quality is measured (value space)
-    QL --> VS((Choose \nvalue space))
-    VS_ex("e.g., datatype for numeric values,\nenumeration for named categories"):::example
-    VS --> VS_ex
-
-    %% Nominal qualities usually use enumerations / lexical spaces
-    VSN_ex("e.g., status enumeration,\nname strings, ISBN"):::example
-    QNOM --> VSN_ex
-
-    %% SUBSTANTIAL TYPES
-    S0 --> SS{"Sortal?\n(identity providing)"}
-    SS -->|Yes| S1{"Rigi?\n(non-changeable)"}
-    SS -->|No| M_X{"Rigid?\n(non-changeable)"}
-
-    %% Sortals
-    S1 -->|Yes| RG{Ultimate \nsortal \nor \nsubkind?}
-    S1 -->|No| DR{Relationally\ndependent?}
-
-    RG -->|Subkind| SK[Subkind]
-    RG -->|Ultimate sortal| US{Object/\ncollective/\nquantity?}
-    US -->|Object| KND[Kind]
-    US -->|Collective| COL[Collective]
-    US -->|Quantity| QTY["Quantity\n(portion)"]
-
-    DR -->|Yes| RO[Role]
-    DR -->|No| PH[Phase]
-
-    %% Mixins
-    M_X -->|Yes| CAT[Category]
-    M_X -->|No| M_DX{Relationally\ndependent?}
-    M_DX -->|Yes| RMX[RoleMixin]
-    M_DX -->|No| PMX[PhaseMixin]
-
-    %% PERDURANT TYPES
-    P0 --> P1{Atomic \nor \ncomplex?}
-    P1 -->|Atomic| EV[Event \ntype]
-    P1 -->|Complex| C0{Activity \nor \nprocess?}
-    C0 -->|Activity| ACT[Activity \ntype]
-    C0 -->|Process| PRC[Process \ntype]
-
-    %% Relator + MATERIAL RELATIONS
-    RL --> RM{Can it derive \na \nmaterial relation?}
-    RM -->|Yes| MRD[Derived \nmaterial relation]
-    RM -->|No| RLE[Relator only]
-
-    %% TYPES – BINARY (RELATIONS)
-    R0 -->|No relator| FR[Formal \nrelation \ntype]
-    R0 -->|Needs relator| MR[Material \nrelation \ntype]
-    MR --> RT((Identify \nderived-from \nrelator \ntype))
-
-
-    %% EXAMPLE BOXES + LINKS
-
-    %% Individuals
-    IP_ex("e.g., this specific meeting"):::example
-    IP --> IP_ex
-
-    IES_ex("e.g., John, Mary,\nthis apple"):::example
-    IES --> IES_ex
-
-    IIM_ex("e.g., John’s height"):::example
-    IIM --> IIM_ex
-
-    IRL_ex("e.g., Mary-John marriage"):::example
-    IRL --> IRL_ex
-
-    %% Unary types – moments
-    MD_ex("e.g., Fragility, Skill"):::example
-    MD --> MD_ex
-
-    %% EXAMPLES FOR QUALITY TYPES
-    QP_ex([e.g., color, weight]):::example
-    QP --> QP_ex
-
-    QN_ex([e.g., bank balance,\ninterest rate]):::example
-    QN --> QN_ex
-
-    MDN_ex("e.g., being fragile,\nbeing obliged"):::example
-    MDN --> MDN_ex
-    MDV_ex("e.g., obligation with\namount & due date"):::example
-    MDV --> MDV_ex
-
-    %% Substantial types
-    KND_ex("e.g., Car, Tree"):::example
-    KND --> KND_ex
-
-    SK_ex("e.g., IPA Beer, Sedan"):::example
-    SK --> SK_ex
-
-    COL_ex("e.g., Forest, FootballTeam"):::example
-    COL --> COL_ex
-
-    QTY_ex("e.g., Water, Beer"):::example
-    QTY --> QTY_ex
-
-    CAT_ex("e.g., Agent"):::example
-    CAT --> CAT_ex
-
-
-    RMX_ex("e.g., Customer"):::example
-    RMX --> RMX_ex
-
-    PMX_ex("e.g., Child, Adult, Elder"):::example
-    PMX --> PMX_ex
-
-    RO_ex("e.g., Student, Employee"):::example
-    RO --> RO_ex
-
-    PH_ex("e.g., Child, Adult"):::example
-    PH --> PH_ex
-
-    %% Perdurant types
-    EV_ex("e.g., Thunder clap"):::example
-    EV --> EV_ex
-
-    FR_ex("e.g., isTallerThan"):::example
-    FR --> FR_ex
-
-    %% Material relation (needs relator)
-    MR_ex["e.g., isMarriedTo, worksFor"]:::example
+    MR_ex("e.g., isMarriedTo, \nworksFor, \nisEnrolledIn"):::example
     MR --> MR_ex
 
-    %% Derived material relation (explicitly from relator)
-    MRD_ex["e.g., isMarriedTo\nderived from Marriage"]:::example
-    MRD --> MRD_ex
+    %% EXAMPLES - Part-Whole
+    CPO_ex("e.g., Engine \ncomponentOf Car, \nHeart componentOf Body"):::example
+    CPO --> CPO_ex
 
-    %% Relator only (you don't model isMarriedTo separately)
-    RLE_ex["e.g., Marriage used\nwithout isMarriedTo"]:::example
-    RLE --> RLE_ex
+    MBO_ex("e.g., Tree \nmemberOf Forest, \nPlayer memberOf Team"):::example
+    MBO --> MBO_ex
 
-    RT_ex["e.g., Marriage\nfor isMarriedTo"]:::example
-    RT --> RT_ex
+    SCO_ex("e.g., Deck \nsubCollectionOf \nCard Collection"):::example
+    SCO --> SCO_ex
 
-    ACT_ex("e.g., hiring,\ntraveling"):::example
-    ACT --> ACT_ex
-
-    PRC_ex("e.g., erosion,\nfermentation"):::example
-    PRC --> PRC_ex
+    SQO_ex("e.g., Alcohol \nsubQuantityOf Wine, \nWater subQuantityOf Ocean"):::example
+    SQO --> SQO_ex
 
     %% CLASSES
     classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff,font-size:10px;
     classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
-    classDef perdurant fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#000;
-    classDef substantial fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#000;
-    classDef intrinsic fill:#ffedd5,stroke:#fb923c,stroke-width:2px,color:#000;
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
-    classDef categoryDashed fill:#dcfce7,stroke:#16a34a,stroke-width:2px,stroke-dasharray: 5 3,color:#000;
+    classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
+    classDef note fill:#dbeafe,stroke:#2563eb,stroke-width:1px,stroke-dasharray: 3 3,color:#000,font-size:9px;
 
-    %% individual-only variants: light grey fill, subtree-colored borders
-    classDef indivGeneric fill:#f3f4f6,stroke:#666,stroke-width:2px,color:#000;
-    classDef indivPerdurant fill:#f3f4f6,stroke:#2563eb,stroke-width:2px,color:#000;
-    classDef indivSubstantial fill:#f3f4f6,stroke:#16a34a,stroke-width:2px,color:#000;
-    classDef indivIntrinsic fill:#f3f4f6,stroke:#fb923c,stroke-width:2px,color:#000;
-    classDef indivRelator fill:#f3f4f6,stroke:#ea580c,stroke-width:2px,color:#000;
-
-    %% individual branch
-    class I0,IE,IEM indivGeneric;
-    class IP indivPerdurant;
-    class IES indivSubstantial;
-    class IIM indivIntrinsic;
-    class IRL indivRelator;
-
-    %% generic / neutral nodes
-    class A,B,T0,U0,U1,UH,E0,E1 generic;
-
-    %% subtree colors
-    class P0,P1,EV,C0,ACT,PRC perdurant;
-    class COL,DR,S0,SS,S1,RG,KND,SK,RO,PH,US,RS,QTY substantial;
-    class CAT,RMX,PMX,M_X,M_DX categoryDashed;
-    class M0,M1,IM,Q0,QL,MD,Q2,QP,QN,QNOM,VS,VSN,MD,MV,MDN,MDV intrinsic;
-    class FR,R0,RL,RM,MRD,MR,RLE,RT relator;
+    %% Apply styles
+    class R0,DR1,PW1,MAT generic;
+    class DR,FOR,MR,RL relator;
+    class PW,CPO,MBO,SCO,SQO meronymic;
+    class NOTE1,NOTE2,NOTE3,NOTE4,NOTE5 note;

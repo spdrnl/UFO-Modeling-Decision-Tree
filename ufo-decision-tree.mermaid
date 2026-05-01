@@ -92,9 +92,38 @@ flowchart TD
     RM -->|No| RLE[Relator only]
 
     %% TYPES – BINARY (RELATIONS)
-    R0 -->|No relator| FR[Formal \nrelation \ntype]
-    R0 -->|Needs relator| MR[Material \nrelation \ntype]
-    MR --> RT((Identify \nderived-from \nrelator \ntype))
+    R0{Relation \ncategory?}
+
+    %% CATEGORIES
+    R0 -->|Domain| DR[Domain \nRelations]
+    R0 -->|Fundamental| FR[Fundamental \nAssociations]
+    R0 -->|Part-Whole| PW[Part-Whole \nRelations]
+
+    %% DOMAIN RELATIONS
+    DR --> DR1{Direct \nor via \nrelator?}
+    DR1 -->|No relator| FOR[Formal \nrelation]
+    DR1 -->|Needs relator| MAT[Material \nrelation]
+    MAT --> DER((Derivation))
+    DER -.->|derives from| RL
+
+    %% FUNDAMENTAL ASSOCIATIONS
+    FR --> CHAR[Characterization]
+    FR --> MED[Mediation]
+    FR --> STRU[Structuration]
+    FR --> DER
+
+    %% PART-WHOLE
+    PW --> PW1{Direct \nor \nSub-type?}
+    PW1 -->|Direct| CPO[ComponentOf]
+    PW1 -->|Sub-type| PW2{Type of \nwhole?}
+    
+    PW2 -->|Collective| MBO[MemberOf]
+    PW2 -->|Collection| SCO[SubCollectionOf]
+    PW2 -->|Quantity| SQO[SubQuantityOf]
+    PW2 -->|Functional| CPO
+    
+    %% Containment is often treated separately or as a specific kind
+    PW1 -->|Special| CON[Containment]
 
 
     %% EXAMPLE BOXES + LINKS
@@ -161,23 +190,35 @@ flowchart TD
     EV_ex("e.g., Thunder clap"):::example
     EV --> EV_ex
 
-    FR_ex("e.g., isTallerThan"):::example
-    FR --> FR_ex
+    FOR_ex("e.g., isTallerThan"):::example
+    FOR --> FOR_ex
 
-    %% Material relation (needs relator)
-    MR_ex["e.g., isMarriedTo, worksFor"]:::example
-    MR --> MR_ex
+    MAT_ex("e.g., isMarriedTo"):::example
+    MAT --> MAT_ex
 
-    %% Derived material relation (explicitly from relator)
-    MRD_ex["e.g., isMarriedTo\nderived from Marriage"]:::example
-    MRD --> MRD_ex
+    CHAR_ex("e.g., colorOf"):::example
+    CHAR --> CHAR_ex
 
-    %% Relator only (you don't model isMarriedTo separately)
-    RLE_ex["e.g., Marriage used\nwithout isMarriedTo"]:::example
-    RLE --> RLE_ex
+    MED_ex("e.g., mediantOf"):::example
+    MED --> MED_ex
 
-    RT_ex["e.g., Marriage\nfor isMarriedTo"]:::example
-    RT --> RT_ex
+    STRU_ex("e.g., valueOf"):::example
+    STRU --> STRU_ex
+
+    CPO_ex("e.g., Engine \nto Car"):::example
+    CPO --> CPO_ex
+
+    MBO_ex("e.g., Tree \nto Forest"):::example
+    MBO --> MBO_ex
+
+    SCO_ex("e.g., Deck \nto Card Collection"):::example
+    SCO --> SCO_ex
+
+    SQO_ex("e.g., Alcohol \nto Wine"):::example
+    SQO --> SQO_ex
+
+    CON_ex("e.g., Bird \nto Cage"):::example
+    CON --> CON_ex
 
     ACT_ex("e.g., hiring,\ntraveling"):::example
     ACT --> ACT_ex
@@ -192,7 +233,8 @@ flowchart TD
     classDef substantial fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#000;
     classDef intrinsic fill:#ffedd5,stroke:#fb923c,stroke-width:2px,color:#000;
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
-    classDef categoryDashed fill:#dcfce7,stroke:#16a34a,stroke-width:2px,stroke-dasharray: 5 3,color:#000;
+    classDef internal fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
+    classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
 
     %% individual-only variants: light grey fill, subtree-colored borders
     classDef indivGeneric fill:#f3f4f6,stroke:#666,stroke-width:2px,color:#000;
@@ -209,11 +251,13 @@ flowchart TD
     class IRL indivRelator;
 
     %% generic / neutral nodes
-    class A,B,T0,U0,U1,UH,E0,E1 generic;
+    class A,B,T0,U0,U1,UH,E0,E1,R0,DR,DR1,PW,PW1,PW2,FR generic;
 
     %% subtree colors
     class P0,P1,EV,C0,ACT,PRC perdurant;
     class COL,DR,S0,SS,S1,RG,KND,SK,RO,PH,US,RS,QTY substantial;
     class CAT,RMX,PMX,M_X,M_DX categoryDashed;
     class M0,M1,IM,Q0,QL,MD,Q2,QP,QN,QNOM,VS,VSN,MD,MV,MDN,MDV intrinsic;
-    class FR,R0,RL,RM,MRD,MR,RLE,RT relator;
+    class FOR,MAT,RL,RM,MRD,RLE,DER relator;
+    class CHAR,MED,STRU internal;
+    class CPO,CON,MBO,SCO,SQO meronymic;
