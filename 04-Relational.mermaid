@@ -18,7 +18,7 @@ flowchart TD
     RL --> RL_ex
     MAT --> MR[Material \nrelation]
 
-    MR -.->|derives via| RL
+    MR -.->|Derivation| RL
 
     %% FUNDAMENTAL ASSOCIATIONS
     FA --> FA1{What does it \nconnect?}
@@ -80,7 +80,7 @@ flowchart TD
     classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
 
     %% Apply styles
-    class R0,DR1,PW1,MAT,FA1 generic;
+    class R0,R1,DR1,PW1,MAT,FA1 generic;
     class DR,FOR,MR,RL relator;
     class PW,CPO,MBO,SCO,SQO,CON meronymic;
     class FA,CHAR,MED,DER,STRU fundamental;
