@@ -1,5 +1,5 @@
 flowchart TD
-    R0{"Relation \nor association?"}
+    RT["Relational term"] --> R0{"Relation \nor association?"}
     R1{"Domain \nor part-whole \nrelation?"}
 
     %% MAIN CATEGORIES
@@ -26,6 +26,7 @@ flowchart TD
     FA1 -->|Relator to entities| MED[Mediation]
     FA1 -->|Material relation to relator| DER[Derivation]
     FA1 -->|Quality to quality structure| STRU[Structuration]
+    FA1 -->|Endurant to perdurant| PART[Participation]
 
     %% PART-WHOLE
     PW --> PW1{What type \nof whole?}
@@ -56,6 +57,9 @@ flowchart TD
     STRU_ex("e.g., Weight quality \nstructuredBy Mass domain"):::example
     STRU --> STRU_ex
 
+    PART_ex("e.g., Person participatesIn Meeting"):::example
+    PART --> PART_ex
+
     %% EXAMPLES - Part-Whole
     CPO_ex("e.g., Engine \ncomponentOf Car, \nHeart componentOf Body"):::example
     CPO --> CPO_ex
@@ -83,4 +87,4 @@ flowchart TD
     class R0,R1,DR1,PW1,MAT,FA1 generic;
     class DR,FOR,MR,RL relator;
     class PW,CPO,MBO,SCO,SQO,CON meronymic;
-    class FA,CHAR,MED,DER,STRU fundamental;
+    class FA,CHAR,MED,DER,PART,STRU fundamental;

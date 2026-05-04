@@ -1,0 +1,67 @@
+flowchart TD
+    A[Start term] --> B{Individual \nor \nuniversal?}
+
+    %% INDIVIDUALS
+    B -->|Individual| I[Individual]
+    click I "01-Individual.html" "Go to Individual decision tree"
+
+    %% UNIVERSALS (TYPES)
+    B -->|Universal| T0{Unary \nor \nbinary?}
+
+    %% TYPES – UNARY (CONCEPTS)
+    T0 -->|Unary| U0{1st-order \nor \nhigher?}
+    T0 -->|Binary| R0{"Relation\nor\nassociation?"}
+
+    R0 --> TR1{"Domain \nor part-whole \nrelation?"}
+    TR1 --> TDR[Domain \nrelation]
+    TR1 --> TPW[Part-Whole \nrelation]
+    R0 --> TFA[Fundamental \nassociation]
+
+    TDR --> TDR_ex("e.g., isMarriedTo, worksFor"):::example
+    TPW --> TPW_ex("e.g., Engine componentOf Car, \nTree memberOf Forest"):::example
+    TFA --> TFA_ex("e.g., Person characterizedBy Age, \nMarriage mediates Person"):::example
+
+    U0 -->|Higher| UH[Higher-order \ntype]
+    U0 -->|1st-order| U1{Endurant \nor \nperdurant?}
+
+    U1 --> E0[Endurant \ntype]
+    U1 --> P0[Perdurant \ntype]
+    click P0 "05-Perdurant.html" "Go to Perdurant decision tree"
+
+    E0 --> E1{Independent?}
+    E1 -->|Yes| S0[Substantial \ntype]
+    E1 -->|No| M0[Moment \ntype]
+
+    %% EXAMPLES
+    P0_ex("e.g., Traveling,\nErosion"):::example
+    P0 --> P0_ex
+
+    S0_ex("e.g., Table,\nSpoon,\nFurniture"):::example
+    S0 --> S0_ex
+
+    M0_ex("e.g., Color,\nSkill,\nISBN"):::example
+    M0 --> M0_ex
+
+    %% CLASSES
+    classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#fff,font-size:10px;
+    classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
+    classDef perdurant fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#000;
+    classDef substantial fill:#dcfce7,stroke:#dcfce7,stroke-width:2px,color:#000;
+    classDef intrinsic fill:#ffedd5,stroke:#fb923c,stroke-width:2px,color:#000;
+    classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
+    classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
+    classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
+
+    %% universal branch class assignments
+    class TFA fundamental;
+    class TPW meronymic;
+    class TDR relator;
+
+    %% generic / neutral nodes
+    class A,B,T0,U0,U1,UH,E0,E1,R0,TR1 generic;
+    class I generic;
+
+    %% leaf colors
+    class P0 perdurant;
+    class S0 substantial;
+    class M0 intrinsic;
