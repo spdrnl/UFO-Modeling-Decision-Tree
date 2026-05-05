@@ -1,4 +1,4 @@
-[UFO Modeling Decision Tree
+UFO Modeling Decision Tree
 ==========================
 The UFO Modeling Decision Tree is step-by-step guide designed to help novice modelers navigate the Unified Foundational Ontology (UFO). This project provides a structured path to help you decide which UFO entity best represents a concept in your domain, using a series of intuitive questions.
 
