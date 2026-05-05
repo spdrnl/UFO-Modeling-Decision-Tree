@@ -1,0 +1,45 @@
+flowchart TD
+    P0[Perdurant type]
+
+    P0 --> P1{Atomic or \ncomplex?}
+
+    %% ATOMIC EVENTS
+    P1 -->|Atomic| AE[Atomic event type]
+    AE --> AE1{Intentional?}
+
+    AE1 -->|Yes| AA["Action"]
+    AE1 -->|No| AEV["Occurrence\n(UFO uses Event generically)"]
+
+    %% COMPLEX EVENTS
+    P1 -->|Complex| CE[Complex event type]
+    CE --> CE1{Intentional?}
+
+    CE1 -->|Yes| CA["Activity \n(complex action)"]
+    CE1 -->|No| PROC["Process \n(complex occurrence)"]
+
+    %% EXAMPLES - Atomic Actions
+    AA_ex("e.g., Turning on \na light switch, \nSigning a document"):::example
+    AA --> AA_ex
+
+    %% EXAMPLES - Atomic Events
+    AEV_ex("e.g., A lightning strike, \nA single radioactive decay, \nA heartbeat"):::example
+    AEV --> AEV_ex
+
+    %% EXAMPLES - Complex Actions (Activities)
+    CA_ex("e.g., Travelling, \nMeeting, \nSurgical procedure"):::example
+    CA --> CA_ex
+
+    %% EXAMPLES - Processes
+    PROC_ex("e.g., Erosion, \nFermentation, \nGlacier melting"):::example
+    PROC --> PROC_ex
+
+
+    %% CLASSES
+    classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff,font-size:10px;
+    classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
+    classDef perdurant fill:#dbeafe,stroke:#2563eb,stroke-width:2px,color:#000;
+    classDef note fill:#fef3c7,stroke:#eab308,stroke-width:1px,stroke-dasharray: 3 3,color:#000,font-size:9px;
+
+    %% Apply styles
+    class P1,AE1,CE1 generic;
+    class P0,AE,CE,AA,AEV,CA,PROC perdurant;
