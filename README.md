@@ -10,7 +10,7 @@ After you get a "feel", reading official UFO documentation should be more straig
 ![UFO Decision Tree Preview](00-Start.png)
 
 ## Key Characteristics
-To make modeling as efficient as possible, this decision tree follows a few unique design principles:
+To make modeling as efficient as possible, this decision tree follows a few design principles:
 
 - Type-Individual Mirroring: There is a symmetry between the Universal (Type) tree and the Individual (Instance) tree. This ensures that the logic you use to define a category (e.g., "Person") is the same logic you use to classify a specific fact (e.g., "John").
 - Referential Consistency: To reduce complexity, the Individual tree acts as a "mirror." For well-understood structures like Part-Whole relations, the Individual tree refers you back to the Type tree's laws rather than duplicating the entire sub-tree.
@@ -24,6 +24,7 @@ To make modeling as efficient as possible, this decision tree follows a few uniq
     - Yellow: Part-Whole Relations (ComponentOf, MemberOf, etc.)
     - Light gray: Abstract types
     - Darker gray: Individuals
+    - White: Decision tree nodes
 - Occurrence Terminology: "Occurrence" is used for non-intentional atomic events to create clearer distinction from Actions. UFO uses "Event" generically
 - Situation: Includes situation individuals from recent UFO extensions, representing states of affairs that trigger or result from events.
 
