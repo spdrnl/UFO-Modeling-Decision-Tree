@@ -52,6 +52,8 @@ As a Type (Universal):
 - Endurant or Perdurant? → Endurant
 - Independent? → No (depends on people involved)
 - Intrinsic or Relator? → Relator (mediates relationship)
+
+
   → Result: Relator type
 
 As an Instance (Individual):
@@ -60,6 +62,7 @@ As an Instance (Individual):
 - Unary or Binary? → Unary (this specific marriage)
 - Endurant/Perdurant/Situation? → Endurant
 - Substantial or Moment? → Moment
+
   → Result: Moment individual (specifically: a relator individual)
 
 ## Theoretical Liberties and streamlining
