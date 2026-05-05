@@ -7,7 +7,7 @@ The primary aim is to provide a clear overview of the different UFO entities, he
 
 After you get a "feel", reading official UFO documentation should be more straightforward. It is recommended to do this, since the tree is a practical guide and not meant to be a replacement for the official documentation.
 
-![UFO Decision Tree Preview](00-Start.png)
+<img src="00-Start.png" alt="UFO Decision Tree Preview" style="width:50%; height:auto;">
 
 ## Key Characteristics
 To make modeling as efficient as possible, this decision tree follows a few design principles:
