@@ -1,8 +1,17 @@
 flowchart TD
     S0[Substantial type]
 
-    %% SUBSTANTIAL TYPES
-    S0 --> SS{"Sortal?\n(identity providing)"}
+    S0 --> S_CA{Concrete or \nAbstract?}
+
+    %% ABSTRACT SUBSTANTIALS
+    S_CA -->|Abstract| ABST[Abstract Type]
+    ABST --> ABST_Q{Fixed value \nspace?}
+    ABST_Q -->|Yes| ENUM[Enumeration]
+    ABST_Q -->|No| DT[Datatype]
+
+    %% CONCRETE SUBSTANTIALS
+    S_CA -->|Concrete| SS{"Sortal?\n(identity providing)"}
+
     SS -->|Yes| S1{"Rigid?\n(non-changeable)"}
     SS -->|No| M_X{"Rigid?\n(non-changeable)"}
 
@@ -19,32 +28,45 @@ flowchart TD
     DR -->|Yes| RO[Role]
     DR -->|No| PH[Phase]
 
-    %% Mixins
+    %% Non-Sortals (Mixins)
     M_X -->|Yes| CAT[Category]
-    M_X -->|No| M_DX{Relationally\ndependent?}
+    M_X -->|No| M_SR{Semi-rigid?}
+
+    M_SR -->|Yes| MIX[Semi-Rigid Mixin]
+    M_SR -->|No| M_DX{Relationally\ndependent?}
+
     M_DX -->|Yes| RMX[RoleMixin]
     M_DX -->|No| PMX[PhaseMixin]
 
     %% EXAMPLE BOXES + LINKS
-    KND_ex("e.g., Table, Spoon"):::example
+    DT_ex("e.g., Number, \nString, \nDate"):::example
+    DT --> DT_ex
+
+    ENUM_ex("e.g., Color(Red, Blue, Green), \nGender(Male, Female)"):::example
+    ENUM --> ENUM_ex
+
+    KND_ex("e.g., Table, Spoon, Person"):::example
     KND --> KND_ex
 
-    SK_ex("e.g., ArabicaCoffee, CoffeeSpoon"):::example
+    SK_ex("e.g., ArabicaCoffee, CoffeeSpoon, Man"):::example
     SK --> SK_ex
 
-    COL_ex("e.g., BasketOfBread, KitchenTeam"):::example
+    COL_ex("e.g., BasketOfBread, KitchenTeam, Forest"):::example
     COL --> COL_ex
 
-    QTY_ex("e.g., Water, Coffee"):::example
+    QTY_ex("e.g., Water, Coffee, Gold"):::example
     QTY --> QTY_ex
 
-    CAT_ex("e.g., Furniture"):::example
+    CAT_ex("e.g., Furniture, PhysicalObject"):::example
     CAT --> CAT_ex
 
-    RMX_ex("e.g., Customer"):::example
+    MIX_ex("e.g., Animal, InsuredObject"):::example
+    MIX --> MIX_ex
+
+    RMX_ex("e.g., Customer, Tenant"):::example
     RMX --> RMX_ex
 
-    PMX_ex("e.g., Fresh, Stale"):::example
+    PMX_ex("e.g., Fresh/Stale object, \nLiving/Dead animal"):::example
     PMX --> PMX_ex
 
     RO_ex("e.g., Student, Employee"):::example
@@ -59,11 +81,13 @@ flowchart TD
     classDef substantial fill:#dcfce7,stroke:#dcfce7,stroke-width:2px,color:#000;
     classDef substantialId fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#000;
     classDef substantialNonId fill:#dcfce7,stroke:#16a34a,stroke-width:2px,stroke-dasharray: 5 3,color:#000;
+    classDef abstract fill:#f3f4f6,stroke:#9ca3af,stroke-width:2px,color:#000;
 
     %% generic / neutral nodes
-    class SS,S1,M_X,RG,US,DR,M_DX generic;
+    class S_CA,ABST_Q,SS,S1,M_X,RG,US,DR,M_SR,M_DX generic;
 
     %% substantial subtree colors
     class KND,COL,QTY substantialId;
     class SK,RO,PH substantialNonId;
-    class S0,CAT,RMX,PMX substantial;;
+    class S0,CAT,RMX,PMX,MIX substantial;
+    class ABST,DT,ENUM abstract;

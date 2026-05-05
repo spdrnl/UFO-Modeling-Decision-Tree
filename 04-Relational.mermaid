@@ -26,7 +26,7 @@ flowchart TD
     FA1 -->|Relator to entities| MED[Mediation]
     FA1 -->|Material relation to relator| DER[Derivation]
     FA1 -->|Quality to quality structure| STRU[Structuration]
-    FA1 -->|Endurant to perdurant| PART[Participation]
+    FA1 -->|Object to event| PART[Participation]
 
     %% PART-WHOLE
     PW --> PW1{What type \nof whole?}
@@ -35,7 +35,7 @@ flowchart TD
     PW1 -->|Collective| MBO[MemberOf]
     PW1 -->|Collection| SCO[SubCollectionOf]
     PW1 -->|Quantity| SQO[SubQuantityOf]
-    PW1 -->|Other| CON[Containment]
+    PW1 -->|Non-standard| CON[Containment]
 
     %% EXAMPLES - Formal Relations
     FOR_ex("e.g., isTallerThan, \nisBetween, \ninstanceOf"):::example
