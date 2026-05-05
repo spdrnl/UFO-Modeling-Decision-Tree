@@ -90,3 +90,19 @@ Preferably the tree should be rendered as plain SVG and be openable in Inkscape.
 ## Contributing
 Contributions are welcome! Please submit a pull request with your changes.
 
+## License
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+
+You may:
+- Share — copy and redistribute the material in any medium or format.
+- Adapt — remix, transform, and build upon the material.
+
+Under the following terms:
+- Attribution — appropriate credit must be given, a link to the license must be provided, and changes must be indicated.
+- NonCommercial — the material may not be used for commercial purposes, including paid trainings, commercial consulting, or commercial publications, without separate permission.
+- ShareAlike — if the material is remixed, transformed, or built upon, the contributions must be distributed under the same license.
+
+This project is intended to remain a shared, non-commercial learning resource. Improvements are encouraged through pull requests to this repository.
+
+If commercial use is desired, request separate permission from the maintainer.
