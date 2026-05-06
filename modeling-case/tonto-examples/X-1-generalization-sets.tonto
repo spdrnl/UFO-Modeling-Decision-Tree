@@ -1,6 +1,12 @@
 package GeneralizationSets
 
 kind Person
+powertype BusinessCategorizer
+category BusinessEntity
+kind BreakfastPlace
+kind SupplierCompany
+subkind FamilyRunBreakfastPlace specializes BreakfastPlace
+subkind MarketSupplier specializes SupplierCompany
 
 // 1. Generalization Sets & Constraints
 // Grouping specializations and defining if they are disjoint or complete
@@ -11,3 +17,11 @@ disjoint complete genset PersonLifeStage {
     general Person
     specifics Adult, Child
 }
+
+complete genset BusinessKinds {
+    general BusinessEntity
+    categorizer BusinessCategorizer
+    specifics FamilyRunBreakfastPlace, MarketSupplier
+}
+
+disjoint complete genset PersonLifeStageShort where Child, Adult specializes Person

@@ -1,12 +1,16 @@
 package RelationMetaProperties
 
 kind Person
+kind BreakfastPlace
 
 // 2. Relation Meta-Properties
 // Defining formal properties of relations
 // Symmetry is documented here as a modeling note; it is not executable Tonto syntax.
 @formal
 relation Person [0..*] -- isNextTo -- [0..*] Person
+
+@comparative
+relation Person [0..*] -- isOlderThan -- [0..*] Person
 
 @formal
 relation Person [0..*] -- isParentOf -- [0..*] Person inverseOf Person.isChildOf
@@ -17,3 +21,14 @@ relation Person [0..*] -- isChildOf -- [0..*] Person
 // Transitivity is documented here as a modeling note; it is not executable Tonto syntax.
 @formal
 relation Person [0..*] -- isAncestorOf -- [0..*] Person
+
+@formal
+relation Person [0..*] -- isAffiliatedWith -- [0..*] BreakfastPlace
+
+@formal
+relation Person [0..*] -- founded -- [0..*] BreakfastPlace specializes Person.isAffiliatedWith
+
+complete genset AffiliationRelationKinds {
+    general Person.isAffiliatedWith
+    specifics Person.founded
+}

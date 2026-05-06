@@ -149,6 +149,7 @@ These examples correspond to `05-Perdurant.mermaid`.
 - Event: John and Mary’s wedding ceremony, a payment transaction, a delivery arrival, a customer placing an order.
 - Complex event / process: the breakfast service from 07:00 to 11:00, the daily opening routine, the weekly supply cycle, the cooking process for a batch of pancakes.
 - Event participation clues: if the modeler is talking about something that happens in time and has participants, temporal parts, or phases, it likely belongs in the perdurant branch.
+- Event and situation relations: placing an order brings about an order-placed situation; an order-placed situation triggers pancake preparation; pancake preparation creates a meal and manifests a cooking skill; a breakfast service can terminate in a service-finished situation.
 
 ### 6. Higher-order types
 
@@ -161,6 +162,7 @@ A powertype is a higher-order type whose instances are all the possible speciali
 - Substantial powertype: `PersonType` (its instances are types like `Cook`, `Customer`, `Adult`), `EstablishmentType` (its instances are types like `BreakfastPlace`, `SupplierCompany`).
 - Moment powertype: `SkillType` (its instances are types like `CookingSkill`, `ServiceSkill`), `AgreementType` (its instances are types like `Marriage`, `Employment`).
 - Perdurant powertype: `EventType` (its instances are types like `PaymentTransaction`, `DeliveryArrival`), `ServiceType` (its instances are types like `BreakfastService`, `BrunchEvent`).
+- Tonto instantiation syntax: examples can explicitly state that a type such as `CookType` or `BrunchEventType` is an instance of a higher-order type.
 
 #### 6.2 Other higher-order types
 
@@ -170,13 +172,15 @@ These are higher-order types that are not necessarily powertypes, but still cate
 
 ### X. Advanced features
 
-These examples correspond to `X-Advanced-features.tonto` and cover specialized Tonto language constructs and ontological nuances.
+These examples correspond to the `X-*` Tonto files and cover specialized Tonto language constructs and ontological nuances.
 
 #### X.1 Generalization sets and constraints
 
 - Generalization set: A way to group multiple subtypes of a single base type.
 - Disjointness: Ensuring an instance cannot belong to more than one subtype at once (e.g., a Person cannot be both a Child and an Adult simultaneously).
 - Completeness: Ensuring every instance of the base type must belong to at least one of the subtypes (e.g., every Person is either a Child or an Adult).
+- Categorizer: A higher-order type can be used to categorize the members of a generalization set.
+- Short syntax: Tonto also supports a compact `genset ... where ... specializes ...` form for simple partitions.
 
 #### X.2 Relation meta-properties
 
@@ -184,12 +188,27 @@ Specialized properties that describe the nature of a relationship:
 - Symmetric: If A is next to B, then B is next to A.
 - Transitive: If A is an ancestor of B, and B is an ancestor of C, then A is an ancestor of C.
 - InverseOf: "John is the parent of Mary" is the inverse of "Mary is the child of John."
+- Comparative relation: John being older than Mary is modeled as a comparative relation.
+- Relation specialization: a more specific relation such as `founded` can specialize a broader relation such as affiliation with a breakfast place.
 
 #### X.3 Refined class distinctions
 
 - Historical role: A role that an entity played in the past and is still identified by, even if it no longer exists. E.g., `DeceasedPerson`.
 - Extrinsic mode: A way of being that depends on another entity. E.g., a `Debt` that a person owes to a bank.
+- Intrinsic mode: a way of being that depends only on its bearer, such as a person's patience.
+- Historical role mixin: a non-sortal grouping for entities that share a historically dependent role.
 
 #### X.4 Property refinements
 
 - Subsets: Creating a specialized version of a relationship that only applies to a subset of the original entities. E.g., defining a specific "industrial sink" component relationship that is a subset of the general "sink" component relationship in a kitchen.
+- Redefines: Replacing a more general relation end with a more specific one in a specialized context.
+- Relation-end meta-attributes: Tonto can mark relation ends as ordered, constant, or derived.
+
+#### X.5 Language coverage
+
+Some examples exist mainly to cover Tonto syntax that is useful to know but not central to one decision-tree branch.
+
+- Package and import syntax: global packages and import aliases.
+- Generic declarations: `class`, explicit ontological natures, labels, and descriptions.
+- Attribute syntax: cardinalities and attribute meta-attributes such as ordered, constant, and derived.
+- Relation syntax: internal relations, unnamed relations, aggregation and composition connectors, inverted connectors, and custom grammar-level relation stereotypes such as `value`, `constitution`, `aggregation`, and `composition`.

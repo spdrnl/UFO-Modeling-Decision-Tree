@@ -1,5 +1,11 @@
 package PerdurantsAndEvents
 
+kind Person
+kind Meal
+situation OrderPlaced
+situation ServiceFinished
+extrinsicMode CookingSkill
+
 // Category: Atomic Action
 event PlacingOrder
 
@@ -11,3 +17,25 @@ event BreakfastService
 
 // Category: Complex Process (Occurrence)
 event CoffeeBrewingProcess
+
+// Category: Process
+process PancakePreparation
+
+// Event and situation relations
+@participational
+relation PlacingOrder [0..*] -- hasParticipant -- [1..*] Person
+
+@creation
+relation PancakePreparation [1] -- creates -- [1..*] Meal
+
+@termination
+relation BreakfastService [1] -- endsIn -- [1] ServiceFinished
+
+@manifestation
+relation PancakePreparation [1] -- manifests -- [1] CookingSkill
+
+@bringsAbout
+relation PlacingOrder [1] -- resultsIn -- [1] OrderPlaced
+
+@triggers
+relation OrderPlaced [1] -- starts -- [1] PancakePreparation

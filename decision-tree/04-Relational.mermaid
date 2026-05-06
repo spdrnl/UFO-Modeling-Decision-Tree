@@ -27,6 +27,10 @@ flowchart TD
     FA1 -->|Material relation to relator| DER[Derivation]
     FA1 -->|Quality to quality structure| STRU[Structuration]
     FA1 -->|Object to event| PART[Participation]
+    FA1 -->|Event to object| CRETERM["Creation / \nTermination"]
+    FA1 -->|Event to mode| MAN[Manifestation]
+    FA1 -->|Event to situation| BA[BringsAbout]
+    FA1 -->|Situation to event| TRIG[Triggers]
 
     %% PART-WHOLE
     PW --> PW1{What type \nof whole?}
@@ -60,6 +64,18 @@ flowchart TD
     PART_ex("e.g., Cook participatesIn BreakfastService, \nCustomer participatesIn PaymentEvent"):::example
     PART --> PART_ex
 
+    CRETERM_ex("e.g., PancakePreparation \ncreates Meal, \nBreakfastService terminates ServiceFinished"):::example
+    CRETERM --> CRETERM_ex
+
+    MAN_ex("e.g., PancakePreparation \nmanifests CookingSkill"):::example
+    MAN --> MAN_ex
+
+    BA_ex("e.g., PlacingOrder \nbringsAbout OrderPlaced"):::example
+    BA --> BA_ex
+
+    TRIG_ex("e.g., OrderPlaced \ntriggers PancakePreparation"):::example
+    TRIG --> TRIG_ex
+
     %% EXAMPLES - Part-Whole
     CPO_ex("e.g., Grill \ncomponentOf Kitchen, \nKitchen componentOf Cafe"):::example
     CPO --> CPO_ex
@@ -87,4 +103,4 @@ flowchart TD
     class R0,R1,DR1,PW1,MAT,FA1 generic;
     class DR,FOR,MR,RL relator;
     class PW,CPO,MBO,SCO,SQO,CON meronymic;
-    class FA,CHAR,MED,DER,PART,STRU fundamental;
+    class FA,CHAR,MED,DER,PART,STRU,CRETERM,MAN,BA,TRIG fundamental;

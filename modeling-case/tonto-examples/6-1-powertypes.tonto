@@ -7,10 +7,17 @@ mode Mode
 relator Relator
 event Event
 event Activity
+role Cook specializes Person
+role Customer specializes Person
+event BrunchEvent
 
 // Category: Substantial powertypes
 // PersonType is a powertype of Person (instances are types like Cook, Customer)
 powertype PersonType
+type CookType (instanceOf PersonType)
+type CustomerType (instanceOf PersonType)
+@instantiation
+relation Cook [1] -- instantiates -- [1] PersonType
 
 // EstablishmentType is a powertype of BreakfastPlace
 powertype EstablishmentType
@@ -25,6 +32,7 @@ powertype AgreementType
 // Category: Perdurant powertypes
 // EventType is a powertype of Event
 powertype EventType
+type BrunchEventType (instanceOf EventType)
 
 // Category: ServiceType is a powertype of Activity (instances are types like BreakfastService)
 powertype ServiceType

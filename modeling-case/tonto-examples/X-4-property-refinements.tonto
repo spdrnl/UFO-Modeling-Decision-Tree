@@ -11,7 +11,8 @@ subkind IndustrialSink specializes Sink
 @componentOf
 relation Kitchen [1] -- hasSink -- [1..*] (sinks) Sink
 
-// `subsets` should point to the refined relation end. The exact qualified
-// relation-end reference should be confirmed once Tonto validation is working.
 @componentOf
-relation Kitchen [1] -- hasIndustrialSink -- [1..*] (industrialSinks) IndustrialSink
+relation Kitchen ({ const } kitchen) [1] -- hasIndustrialSink -- [1..*] ({ ordered, derived, subsets Kitchen.hasSink.sinks } industrialSinks) IndustrialSink
+
+@componentOf
+relation Kitchen [1] -- hasReplacementSink -- [0..1] ({ redefines Kitchen.hasSink.sinks } replacementSink) Sink
