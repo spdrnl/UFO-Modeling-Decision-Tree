@@ -4,7 +4,13 @@ kind Person
 datatype CurrencyAmount
 
 // Category: Mode as a way of being
-mode CookingSkill
+mode CurrentIntention
+
+@characterization
+relation CurrentIntention [1] -- inheresIn -- [1] Person
+
+// Category: Disposition as a manifestable intrinsic mode
+intrinsicMode CookingSkill
 
 @characterization
 relation CookingSkill [1] -- inheresIn -- [1] Person

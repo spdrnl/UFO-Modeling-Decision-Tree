@@ -20,7 +20,7 @@ The following recurring domain elements are used throughout:
 - Employment relations involving cooks, servers, and owners.
 - Breakfast services, brunch events, and food preparation episodes.
 - Qualities such as a person's age, the café's rating, and the temperature of coffee.
-- Modes such as cooking skill, legal obligation, and ownership commitment.
+- Modes and dispositions such as mood, belief, cooking skill, legal obligation, and ownership commitment.
 
 ## Decision-tree coverage
 
@@ -108,8 +108,10 @@ These examples correspond to `03-Moment.mermaid`.
 
 #### 3.2 Modes
 
-- Mode as a way of being: John's cooking skill, Mary's patience, the café’s reputation, a toaster’s fragility.
-- Mode with internal structure or parameters: John’s obligation to pay rent by the 5th of the month, Mary’s right to access the business account, an employee’s shift commitment from 07:00 to 13:00.
+- Mode: an intrinsic way of being that depends only on its bearer and is not primarily modeled as a power or tendency, such as Mary's mood, John's belief about stock levels, or a cook's current intention.
+- Disposition: an intrinsic mode that is primarily modeled as a power or tendency with characteristic manifestations, such as a toaster’s fragility, a knife’s sharpness, or John's cooking skill manifesting during pancake preparation.
+- Extrinsic mode: a mode that also depends on some external entity, such as John’s debt to a bank, Mary’s obligation to pay a supplier, or a customer’s reservation right against Sunrise.
+- Internal structure or parameters: after choosing mode, disposition, or extrinsic mode, decide whether the mode needs attributes or related entities, such as a skill proficiency level, an obligation due date, an access right scope, or a shift commitment from 07:00 to 13:00.
 
 #### 3.3 Relators
 
@@ -133,6 +135,11 @@ These examples correspond to `04-Relational.mermaid`.
 - Derivation: `isMarriedTo` is derived from Marriage; `worksFor` is derived from Employment; `suppliesTo` is derived from SupplyContract.
 - Structuration: Mary’s height is structured by the value 168 cm; the coffee temperature is structured by 72°C; the rating is structured by a 1–5 scale value.
 - Participation: John participates in this breakfast service; Mary participates in the brunch event; a customer participates in a payment event.
+- Creation: pancake preparation creates a meal; a receipt-printing event creates a receipt.
+- Termination: a breakfast service ends in a service-finished situation; a cancellation event terminates a reservation.
+- Manifestation: pancake preparation manifests John's cooking skill; careful knife work manifests the cook's knife-handling skill.
+- BringsAbout: placing an order brings about an order-placed situation; payment brings about a paid-order situation.
+- Triggers: an order-placed situation triggers pancake preparation; a low-stock situation triggers a replenishment order.
 
 #### 4.3 Part-whole
 
@@ -149,7 +156,7 @@ These examples correspond to `05-Perdurant.mermaid`.
 - Event: John and Mary’s wedding ceremony, a payment transaction, a delivery arrival, a customer placing an order.
 - Complex event / process: the breakfast service from 07:00 to 11:00, the daily opening routine, the weekly supply cycle, the cooking process for a batch of pancakes.
 - Event participation clues: if the modeler is talking about something that happens in time and has participants, temporal parts, or phases, it likely belongs in the perdurant branch.
-- Event and situation relations: placing an order brings about an order-placed situation; an order-placed situation triggers pancake preparation; pancake preparation creates a meal and manifests a cooking skill; a breakfast service can terminate in a service-finished situation.
+- Event and situation relations: after identifying the event or process, use the relational tree to choose whether it participates in an event, creates or terminates something, manifests a mode or disposition, brings about a situation, or is triggered by a situation.
 
 ### 6. Higher-order types
 

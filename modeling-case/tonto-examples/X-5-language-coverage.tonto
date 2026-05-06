@@ -2,15 +2,15 @@ import AbstractSubstantials as Abstracts
 
 global package SharedLanguageElements
 
-class ModelElement {
+category BusinessAsset {
     label {
-        @en "Model element"
+        @en "Business asset"
     }
     description {
-        @en "Generic element used only to cover language syntax."
+        @en "Generic business-related element used to cover language syntax."
     }
     @formal
-    [0..*] -- relatesTo -- [0..*] ModelElement
+    [0..*] -- relatesTo -- [0..*] BusinessAsset
 }
 
 class ObjectNatureExample of objects
@@ -60,16 +60,16 @@ subkind BreakfastPlace specializes FoodBusiness, CommercialEntity
 kind RegisteredCompany
 
 @aggregation
-relation BreakfastPlace [1] <>-- hasArea -- [1..*] ModelElement
+relation BreakfastPlace [1] <>-- hasArea -- [1..*] BusinessAsset
 
 @composition
-relation BreakfastPlace [1] <o>-- ownsCounter -- [1] ModelElement
+relation BreakfastPlace [1] <o>-- ownsCounter -- [1] BusinessAsset
 
 @aggregation
-relation ModelElement [0..*] -- areaOf --<> [1] BreakfastPlace
+relation BusinessAsset [0..*] -- areaOf --<> [1] BreakfastPlace
 
 @composition
-relation ModelElement [1] -- counterOf --<o> [1] BreakfastPlace
+relation BusinessAsset [1] -- counterOf --<o> [1] BreakfastPlace
 
 @formal
 relation PersonNatureExample [1] -- [1] TeamNatureExample

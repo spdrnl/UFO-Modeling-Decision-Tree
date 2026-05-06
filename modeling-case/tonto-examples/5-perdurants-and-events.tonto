@@ -4,7 +4,7 @@ kind Person
 kind Meal
 situation OrderPlaced
 situation ServiceFinished
-extrinsicMode CookingSkill
+intrinsicMode CookingSkill
 
 // Category: Atomic Action
 event PlacingOrder

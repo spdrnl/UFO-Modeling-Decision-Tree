@@ -7,11 +7,13 @@ flowchart TD
 
     IM --> Q0{Quality \nor \nmode?}
     Q0 -->|Quality| QL[Quality \ntype]
-    Q0 -->|Mode| MD[Mode / \nDisposition type]
+    Q0 -->|Mode| MD0{Depends only \non bearer, or also \non external relata?}
 
-    %% Simple clarification of mode kinds (no extra diamonds)
-    MD --> MDN((Mode as \nway-of-being))
-    MD --> MDV((Mode with \nparameters))
+    %% Mode / disposition refinement
+    MD0 -->|Only bearer| IMD{"Directed toward \ncharacteristic events \n(may stay unmanifested)?"}
+    MD0 -->|Also external| EMD[Extrinsic \nmode]
+    IMD -->|Yes| DISP[Disposition]
+    IMD -->|No| MD[Other intrinsic \nmode]
 
     %% First, classify quality kind
     QL --> Q2{Perceivable/\nnon-perceivable/\nnominal?}
@@ -35,10 +37,6 @@ flowchart TD
 
     %% EXAMPLE BOXES + LINKS
 
-    %% Unary types – moments
-    MD_ex("e.g., ToasterFragility, \nJohnsCookingSkill"):::example
-    MD --> MD_ex
-
     %% EXAMPLES FOR QUALITY TYPES
     QP_ex([e.g., color of cafe sign, \ntemperature of coffee]):::example
     QP --> QP_ex
@@ -46,10 +44,14 @@ flowchart TD
     QN_ex([e.g., cafe's bank balance, \nJohn's age]):::example
     QN --> QN_ex
 
-    MDN_ex("e.g., JohnsCookingSkill, \nMarysPatience"):::example
-    MDN --> MDN_ex
-    MDV_ex("e.g., obligation to pay rent \nwith due date"):::example
-    MDV --> MDV_ex
+    MD_ex("e.g., MarysIntention, \nJohnsBelief"):::example
+    MD --> MD_ex
+
+    DISP_ex("e.g., fragility of a glass, \nthe magnet’s disposition to attract metal"):::example
+    DISP --> DISP_ex
+
+    EMD_ex("e.g., obligation to supplier, \nreservation right against Sunrise \n(social/extrinsic modes)"):::example
+    EMD --> EMD_ex
 
     %% Derived material relation (explicitly from relator)
     MRD_ex["e.g., isMarriedTo derived \nfrom Marriage, worksFor \nderived from Employment"]:::example
@@ -66,8 +68,8 @@ flowchart TD
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
 
     %% generic / neutral nodes
-    class M1,Q0,Q2,RM,VS,MDN,MDV generic;
+    class M1,Q0,Q2,RM,VS,MD0,IMD generic;
 
     %% subtree colors
-    class M0,IM,QL,MD,QP,QN,QNOM intrinsic;
+    class M0,IM,QL,MD,DISP,EMD,QP,QN,QNOM intrinsic;
     class RL,MRD,RLE relator;
