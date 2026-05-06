@@ -17,7 +17,7 @@ quality BankBalance
 relation BankBalance [1] -- inheresIn -- [1] BreakfastPlace
 
 // Category: Nominal quality
-// TableCleanliness often uses an enumeration like TableState { Clean, Dirty }
+// TableCleanliness often uses an enum like TableState { Clean, Dirty }
 quality TableCleanliness // Simplified, usually inheres in Table
 @characterization
 relation TableCleanliness [1] -- inheresIn -- [1] BreakfastPlace

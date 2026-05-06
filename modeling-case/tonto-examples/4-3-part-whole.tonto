@@ -22,7 +22,7 @@ relation Kitchen [1] <>-- hasGrill -- [0..*] Grill
 @componentOf
 relation Kitchen [1] <>-- hasSink -- [1..*] Sink
 
-// or use an inline declaration with implicit Kitchen [1..1]
+// or use an inline declaration
 //
 // kind Kitchen {
 //     // A Kitchen contains at least one Sink

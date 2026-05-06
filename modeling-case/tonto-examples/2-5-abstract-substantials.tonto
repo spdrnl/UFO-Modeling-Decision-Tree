@@ -6,6 +6,6 @@ datatype CurrencyAmount
 
 // Category: Enumeration
 // Used as value space for nominal qualities such as TableCleanliness
-enumeration TableState {
+enum TableState {
     Clean, Dirty
 }

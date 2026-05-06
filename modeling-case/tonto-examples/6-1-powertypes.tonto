@@ -10,27 +10,21 @@ event Activity
 
 // Category: Substantial powertypes
 // PersonType is a powertype of Person (instances are types like Cook, Customer)
-type PersonType
-PersonType powertypeOf Person
+powertype PersonType
 
 // EstablishmentType is a powertype of BreakfastPlace
-type EstablishmentType
-EstablishmentType powertypeOf BreakfastPlace
+powertype EstablishmentType
 
 // Category: Moment powertypes
 // SkillType is a powertype of Mode (instances are types like CookingSkill)
-type SkillType
-SkillType powertypeOf Mode
+powertype SkillType
 
 // Category: AgreementType is a powertype of Relator (instances are types like Marriage)
-type AgreementType
-AgreementType powertypeOf Relator
+powertype AgreementType
 
 // Category: Perdurant powertypes
 // EventType is a powertype of Event
-type EventType
-EventType powertypeOf Event
+powertype EventType
 
 // Category: ServiceType is a powertype of Activity (instances are types like BreakfastService)
-type ServiceType
-ServiceType powertypeOf Activity
+powertype ServiceType

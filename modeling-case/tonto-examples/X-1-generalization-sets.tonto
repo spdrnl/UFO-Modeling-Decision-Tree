@@ -7,9 +7,7 @@ kind Person
 phase Adult specializes Person
 phase Child specializes Person
 
-genset PersonLifeStage {
+disjoint complete genset PersonLifeStage {
     general Person
     specifics Adult, Child
-    disjoint
-    complete
 }
