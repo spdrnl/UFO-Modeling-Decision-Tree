@@ -1,0 +1,81 @@
+import AbstractSubstantials as Abstracts
+
+global package SharedLanguageElements
+
+class ModelElement {
+    label {
+        @en "Model element"
+    }
+    description {
+        @en "Generic element used only to cover language syntax."
+    }
+    @formal
+    [0..*] -- relatesTo -- [0..*] ModelElement
+}
+
+class ObjectNatureExample of objects
+kind PersonNatureExample of functional-complexes
+collective TeamNatureExample of collectives
+quantity CoffeeNatureExample of quantities
+quality RatingNatureExample of qualities
+intrinsicMode SkillNatureExample of intrinsic-modes
+extrinsicMode ObligationNatureExample of extrinsic-modes
+relator AgreementNatureExample of relators
+event EventNatureExample of events
+process ProcessNatureExample of events
+situation SituationNatureExample of situations
+type TypeNatureExample of types
+datatype AbstractValue of abstract-individuals
+datatype BaseCode
+enum BaseTableState {
+    Clean, Dirty
+}
+
+datatype LabeledCode specializes BaseCode {
+    label {
+        @en "Labeled code"
+    }
+    description {
+        @en "Datatype example with labels, specialization, and attributes."
+    }
+    code: AbstractValue [1] { const }
+    tags: AbstractValue [*] { ordered }
+    displayValue: AbstractValue [0..1] { derived }
+    auditTrail: AbstractValue [1..*] { ordered const derived }
+}
+
+enum ExtendedTableState specializes BaseTableState {
+    label {
+        @en "Extended table state"
+    }
+    description {
+        @en "Enum example with labels, description, and specialization."
+    }
+    Reserved, NeedsCleaning
+}
+
+kind FoodBusiness
+category CommercialEntity
+subkind BreakfastPlace specializes FoodBusiness, CommercialEntity
+kind RegisteredCompany
+
+@aggregation
+relation BreakfastPlace [1] <>-- hasArea -- [1..*] ModelElement
+
+@composition
+relation BreakfastPlace [1] <o>-- ownsCounter -- [1] ModelElement
+
+@aggregation
+relation ModelElement [0..*] -- areaOf --<> [1] BreakfastPlace
+
+@composition
+relation ModelElement [1] -- counterOf --<o> [1] BreakfastPlace
+
+@formal
+relation PersonNatureExample [1] -- [1] TeamNatureExample
+
+@value
+relation RatingNatureExample [1] -- hasValue -- [1] AbstractValue
+
+@constitution
+relation RegisteredCompany [1] -- constitutes -- [1] BreakfastPlace
