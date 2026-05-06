@@ -8,8 +8,10 @@ kind BreakfastPlace
 // Example: Marriage between two persons (John and Mary)
 // We do not introduce a separate material relation; we use the relator
 relator Marriage
+
 @mediation
 relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+
 @mediation
 relation Marriage [1] -- mediatesSpouse2 -- [1] Person
 
@@ -17,11 +19,15 @@ relation Marriage [1] -- mediatesSpouse2 -- [1] Person
 // Example: Employment between a person (e.g., a cook) and a breakfast place (e.g., Sunrise)
 // The material relation `worksFor` is derived from the relator `Employment`
 relator Employment
+
 @mediation
 relation Employment [1] -- mediatesEmployee -- [1] Person
+
 @mediation
 relation Employment [1] -- mediatesEmployer -- [1] BreakfastPlace
+
 @material
 relation Person [0..*] -- worksFor -- [0..*] BreakfastPlace
+
 @derivation
 relation Person.worksFor [1] -- derivedFrom -- [1] Employment

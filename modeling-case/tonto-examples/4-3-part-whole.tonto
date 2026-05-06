@@ -54,13 +54,16 @@ relation FullStaffTeam [1] <>-- hasSubTeam -- [0..*] WeekendStaff
 // Category: SubQuantityOf (Quantity)
 // Example: Butter subQuantityOf ButterBlock
 quantity ButterBlock
+
 @subQuantityOf
 relation ButterBlock [1] <>-- hasSubQuantity -- [0..*] Butter
 
 // Category: Containment (Non-standard, spatial)
 // Example: Croissant in DisplayCase, Eggs in Refrigerator
 // `containment` is a custom stereotype here, not a UFO part-whole stereotype.
+
 @containment
 relation DisplayCase [1] <>-- contains -- [0..*] Croissant
+
 @containment
 relation Refrigerator [1] <>-- contains -- [0..*] EggCarton

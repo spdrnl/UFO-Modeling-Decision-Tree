@@ -8,11 +8,15 @@ relation Person [1] -- isOlderThan -- [1] Person
 
 // Category: Material relation
 relator Marriage
+
 @mediation
 relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+
 @mediation
 relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+
 @material
 relation Person [0..1] -- isMarriedTo -- [0..1] Person
+
 @derivation
 relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage

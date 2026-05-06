@@ -11,10 +11,14 @@ relation Person [1] -- isOlderThan -- [1] Person
 // Example: John isMarriedTo Mary (their relation is grounded in an instance of Marriage)
 // Material relations are derived from relators.
 relator Marriage
+
 @mediation
 relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+
 @mediation
 relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+
+
 @material
 relation Person [0..1] -- isMarriedTo -- [0..1] Person
 @derivation

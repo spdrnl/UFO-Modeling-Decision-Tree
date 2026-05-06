@@ -6,9 +6,12 @@ kind BreakfastPlace
 // Category: Role (anti-rigid, relational)
 // Example: A Person (e.g., Rosa) can temporarily be a Customer of Sunrise Breakfast Place
 role Customer specializes Person
+
 relator CustomerRelationship
+
 @mediation
 relation CustomerRelationship [1] -- mediatesCustomer -- [1] Customer
+
 @mediation
 relation CustomerRelationship [1] -- mediatesPlace -- [1] BreakfastPlace
 
