@@ -36,27 +36,27 @@ flowchart TD
     %% EXAMPLE BOXES + LINKS
 
     %% Unary types – moments
-    MD_ex("e.g., Fragility, Skill"):::example
+    MD_ex("e.g., ToasterFragility, \nJohnsCookingSkill"):::example
     MD --> MD_ex
 
     %% EXAMPLES FOR QUALITY TYPES
-    QP_ex([e.g., color, weight]):::example
+    QP_ex([e.g., color of cafe sign, \ntemperature of coffee]):::example
     QP --> QP_ex
 
-    QN_ex([e.g., bank balance,\ninterest rate]):::example
+    QN_ex([e.g., cafe's bank balance, \nJohn's age]):::example
     QN --> QN_ex
 
-    MDN_ex("e.g., being fragile,\nbeing obliged"):::example
+    MDN_ex("e.g., JohnsCookingSkill, \nMarysPatience"):::example
     MDN --> MDN_ex
-    MDV_ex("e.g., obligation with\namount & due date"):::example
+    MDV_ex("e.g., obligation to pay rent \nwith due date"):::example
     MDV --> MDV_ex
 
     %% Derived material relation (explicitly from relator)
-    MRD_ex["e.g., isMarriedTo\nderived from Marriage"]:::example
+    MRD_ex["e.g., isMarriedTo derived \nfrom Marriage, worksFor \nderived from Employment"]:::example
     MRD --> MRD_ex
 
     %% Relator only (you don't model isMarriedTo separately)
-    RLE_ex["e.g., Marriage used\nwithout isMarriedTo"]:::example
+    RLE_ex["e.g., Marriage, Employment, \nSupplyContract"]:::example
     RLE --> RLE_ex
 
     %% CLASSES

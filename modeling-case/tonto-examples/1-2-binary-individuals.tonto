@@ -1,0 +1,30 @@
+package BinaryIndividuals
+
+// Category: Formal relation at the individual level
+// Example: John is older than Mary (both are instances of Person)
+kind Person
+// Formal relations are often modeled as associations with the «formal» stereotype
+relation isOlderThan {
+    formal
+    -- Person
+    -- Person
+}
+
+// Category: Material relation at the individual level
+// Example: John isMarriedTo Mary (their relation is grounded in an instance of Marriage)
+// Material relations are derived from relators.
+relator Marriage mediates Person, Person
+material isMarriedTo derives Marriage
+
+// Category: Fundamental associations at the individual level
+// Example: Mary's patience inheresIn Mary (Patience depends on a Person bearer)
+quality Patience
+// 'inheresIn' is a fundamental association
+Patience inheresIn Person
+
+// Category: Part-whole at the individual level
+// Example: this Grill componentOf this Kitchen in Sunrise Breakfast Place
+kind Grill
+kind Kitchen
+// 'componentOf' is a part-whole relation
+Grill componentOf Kitchen

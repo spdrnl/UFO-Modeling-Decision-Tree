@@ -1,0 +1,21 @@
+package PropertyRefinements
+
+import PartWhole
+
+// 4. Property Refinements
+// Subsets and redefines
+kind Kitchen
+kind Sink
+kind IndustrialSink specializes Sink
+
+association hasSink {
+    @componentOf
+    Kitchen [1..1]
+    Sink [1..*]
+}
+
+association hasIndustrialSink {
+    @componentOf
+    Kitchen [1..1]
+    industrialSinks: IndustrialSink [1..*] { subsets sinks }
+}

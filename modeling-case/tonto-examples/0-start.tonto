@@ -1,0 +1,7 @@
+package StartExamples
+
+// Individual-level reading (not modeled in Tonto):
+// Mary : Person   // Mary is an instance of the kind Person
+
+// Type-level declaration (what Tonto actually represents)
+kind Person

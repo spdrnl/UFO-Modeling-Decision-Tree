@@ -1,0 +1,10 @@
+package UltimateSortals
+
+// Category: Kind
+kind Person
+
+// Category: Collective
+collective StaffTeam
+
+// Category: Quantity
+quantity Coffee

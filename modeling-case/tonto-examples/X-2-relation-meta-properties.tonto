@@ -1,0 +1,28 @@
+package RelationMetaProperties
+
+kind Person
+
+// 2. Relation Meta-Properties
+// Defining formal properties of relations
+relation isNextTo {
+    symmetric
+    -- Person
+    -- Person
+}
+
+relation isParentOf {
+    inverseOf isChildOf
+    -- Person
+    -- Person
+}
+
+relation isChildOf {
+    -- Person
+    -- Person
+}
+
+relation isAncestorOf {
+    transitive
+    -- Person
+    -- Person
+}

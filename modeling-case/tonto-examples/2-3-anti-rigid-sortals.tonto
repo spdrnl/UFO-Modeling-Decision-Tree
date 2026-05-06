@@ -1,0 +1,10 @@
+package AntiRigidSortals
+
+kind Person
+
+// Category: Role (anti-rigid, relational)
+// Example: A Person (e.g., Rosa) can temporarily be a Customer of Sunrise Breakfast Place
+role Customer specializes Person
+
+// Category: Phase (anti-rigid, intrinsic and temporal)
+phase Adult specializes Person

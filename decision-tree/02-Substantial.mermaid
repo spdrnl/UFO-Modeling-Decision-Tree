@@ -37,37 +37,37 @@ flowchart TD
     M_DX -->|No| PMX[PhaseMixin]
 
     %% EXAMPLE BOXES + LINKS
-    DT_ex("e.g., Number, \nString, \nDate"):::example
+    DT_ex("e.g., CurrencyAmount, \nTemperatureValue, \nRatingValue"):::example
     DT --> DT_ex
 
-    ENUM_ex("e.g., Color(Red, Blue, Green), \nGender(Male, Female)"):::example
+    ENUM_ex("e.g., DayOfWeek(Mon, Tue...), \nTableState(Clean, Dirty)"):::example
     ENUM --> ENUM_ex
 
-    KND_ex("e.g., Table, Spoon, Person"):::example
+    KND_ex("e.g., Person, BreakfastPlace, \nSupplierCompany"):::example
     KND --> KND_ex
 
-    SK_ex("e.g., ArabicaCoffee, CoffeeSpoon, Man"):::example
+    SK_ex("e.g., ArabicaCoffeeBeanBatch, \nFamilyRunBreakfastPlace"):::example
     SK --> SK_ex
 
-    COL_ex("e.g., BasketOfBread, KitchenTeam, Forest"):::example
+    COL_ex("e.g., StaffTeam, \nSupplierConsortium"):::example
     COL --> COL_ex
 
-    QTY_ex("e.g., Water, Coffee, Gold"):::example
+    QTY_ex("e.g., Coffee, Milk, Batter"):::example
     QTY --> QTY_ex
 
-    CAT_ex("e.g., Furniture, Cutlery"):::example
+    CAT_ex("e.g., PhysicalObject, \nCommercialEstablishment"):::example
     CAT --> CAT_ex
 
-    MIX_ex("e.g., Animal, InsuredObject"):::example
+    MIX_ex("e.g., SkilledWorker, \nInsuredAsset"):::example
     MIX --> MIX_ex
 
-    RMX_ex("e.g., Customer, Tenant"):::example
+    RMX_ex("e.g., ServiceProvider, FoodBuyer"):::example
     RMX --> RMX_ex
 
-    PMX_ex("e.g., Fresh/Stale object, \nLiving/Dead animal"):::example
+    PMX_ex("e.g., AvailableResource, \nHeatedConsumable"):::example
     PMX --> PMX_ex
 
-    RO_ex("e.g., Student, Employee"):::example
+    RO_ex("e.g., Cook, Customer, \nEmployee, Employer"):::example
     RO --> RO_ex
 
     PH_ex("e.g., Child, Adult"):::example

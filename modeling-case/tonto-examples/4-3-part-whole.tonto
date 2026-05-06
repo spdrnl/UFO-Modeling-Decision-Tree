@@ -1,0 +1,62 @@
+package PartWhole
+
+// Core types
+kind Grill
+kind Kitchen
+kind Staff
+kind StaffTeam
+quantity Milk
+quantity Butter
+kind DisplayCase
+kind Refrigerator
+kind Croissant
+kind EggCarton
+kind Sink
+
+// Category: ComponentOf (Functional complex)
+// Example: Grill componentOf Kitchen, Kitchen componentOf BreakfastPlace
+Grill componentOf Kitchen
+
+// Every Kitchen has at least one Sink as a component
+association hasSink {
+    @componentOf
+    Kitchen [1..1]
+    Sink [1..*]
+}
+
+// or inline declaration with implicit Kitchen [1..1]
+
+kind Kitchen {
+    // A Kitchen contains at least one Sink
+    @componentOf
+    sinks: Sink [1..*]
+}
+
+
+// Category: MemberOf (Collective)
+// Example: Staff memberOf StaffTeam
+Staff memberOf StaffTeam
+
+// Category: SubCollectionOf (Collection)
+// Example: WeekendStaff subCollectionOf FullStaffTeam
+// 'WeekendStaff' and 'FullStaffTeam' are collections built from Staff members
+collective WeekendStaff {
+    @memberOf
+    members: Staff [6..6]
+}
+
+collective FullStaffTeam
+
+// WeekendStaff is still a subset of the FullStaffTeam
+WeekendStaff subCollectionOf FullStaffTeam
+
+// Category: SubQuantityOf (Quantity)
+// Example: Butter subQuantityOf ButterBlock
+quantity ButterBlock
+Butter subQuantityOf ButterBlock
+
+// Category: Containment (Non-standard, spatial)
+// Example: Croissant in DisplayCase, Eggs in Refrigerator
+Croissant in DisplayCase
+EggCarton in Refrigerator
+

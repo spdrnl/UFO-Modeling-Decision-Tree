@@ -1,0 +1,13 @@
+package PerdurantsAndEvents
+
+// Category: Atomic Action
+event PlacingOrder
+
+// Category: Atomic Occurrence
+event SensorAlert
+
+// Category: Complex Activity (Action)
+event BreakfastService
+
+// Category: Complex Process (Occurrence)
+event CoffeeBrewingProcess

@@ -1,0 +1,14 @@
+package DomainRelations
+
+kind Person
+
+// Category: Formal relation
+relation isOlderThan {
+    formal
+    -- Person
+    -- Person
+}
+
+// Category: Material relation
+relator Marriage mediates Person, Person
+material isMarriedTo derives Marriage

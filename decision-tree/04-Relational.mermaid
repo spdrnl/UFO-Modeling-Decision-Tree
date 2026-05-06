@@ -14,7 +14,7 @@ flowchart TD
     DR1 -->|No| MAT{Relator \nor derived \nmaterial relation?}
 
     MAT --> RL[Relator \ntype]
-    RL_ex("e.g., Marriage, \nEmployment, \nEnrollment"):::example
+    RL_ex("e.g., Marriage, \nEmployment, \nSupplyContract"):::example
     RL --> RL_ex
     MAT --> MR[Material \nrelation]
 
@@ -38,42 +38,42 @@ flowchart TD
     PW1 -->|Non-standard| CON["Containment\n(spatial)"]
 
     %% EXAMPLES - Formal Relations
-    FOR_ex("e.g., isTallerThan, \nisBetween, \ninstanceOf"):::example
+    FOR_ex("e.g., John isOlderThan Mary, \nSunrise isCloserTo Market"):::example
     FOR --> FOR_ex
 
-    MR_ex("e.g., isMarriedTo, \nworksFor, \nisEnrolledIn"):::example
+    MR_ex("e.g., isMarriedTo, \nworksFor Sunrise, \nsuppliesTo Sunrise"):::example
     MR --> MR_ex
 
     %% EXAMPLES - Fundamental Associations
-    CHAR_ex("e.g., Person \ncharacterizedBy Age, \nCar characterizedBy Color"):::example
+    CHAR_ex("e.g., Mary \ncharacterizedBy Patience, \nCafe characterizedBy Rating"):::example
     CHAR --> CHAR_ex
 
-    MED_ex("e.g., Marriage \nmediates Person, \nEmployment mediates Employee"):::example
+    MED_ex("e.g., Marriage \nmediates Person, \nEmployment mediates Cook and Sunrise"):::example
     MED --> MED_ex
 
-    DER_ex("e.g., isMarriedTo \nderives from Marriage"):::example
+    DER_ex("e.g., isMarriedTo \nderives from Marriage, \nworksFor derives from Employment"):::example
     DER --> DER_ex
 
-    STRU_ex("e.g., Weight quality \nstructuredBy Mass domain"):::example
+    STRU_ex("e.g., CoffeeTemperature \nstructuredBy TemperatureValue, \nHygieneRating structuredBy RatingValue"):::example
     STRU --> STRU_ex
 
-    PART_ex("e.g., Person participatesIn Meeting"):::example
+    PART_ex("e.g., Cook participatesIn BreakfastService, \nCustomer participatesIn PaymentEvent"):::example
     PART --> PART_ex
 
     %% EXAMPLES - Part-Whole
-    CPO_ex("e.g., Engine \ncomponentOf Car, \nHeart componentOf Body"):::example
+    CPO_ex("e.g., Grill \ncomponentOf Kitchen, \nKitchen componentOf Cafe"):::example
     CPO --> CPO_ex
 
-    MBO_ex("e.g., Tree \nmemberOf Forest, \nPlayer memberOf Team"):::example
+    MBO_ex("e.g., Staff \nmemberOf StaffTeam, \nOwner memberOf OwnersAssoc"):::example
     MBO --> MBO_ex
 
-    SCO_ex("e.g., Deck \nsubCollectionOf \nCard Collection"):::example
+    SCO_ex("e.g., WeekendStaff \nsubCollectionOf \nFull Staff Team"):::example
     SCO --> SCO_ex
 
-    SQO_ex("e.g., Alcohol \nsubQuantityOf Wine, \nWater subQuantityOf Ocean"):::example
+    SQO_ex("e.g., Milk \nsubQuantityOf Milk Stock, \nButter subQuantityOf Butter Block"):::example
     SQO --> SQO_ex
 
-    CON_ex("e.g., Bird \nin Cage, \nWine in Bottle"):::example
+    CON_ex("e.g., Croissant \nin Display Case, \nEggs in Refrigerator"):::example
     CON --> CON_ex
 
     %% CLASSES

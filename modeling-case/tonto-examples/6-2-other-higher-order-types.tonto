@@ -1,0 +1,11 @@
+package OtherHigherOrderTypes
+
+// Category: Other higher-order types
+// These categorize other types but are not necessarily powertypes
+type Species
+type Breed
+type ProductCategory
+
+// Examples of instances (types) for the higher-order types
+// GoldenRetriever (a type) is an instance of Breed
+// Breed (a higher-order type) has instances that are themselves types

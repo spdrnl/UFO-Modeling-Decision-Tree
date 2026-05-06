@@ -1,0 +1,12 @@
+package Modes
+
+kind Person
+
+// Category: Mode as a way of being
+mode CookingSkill inheresIn Person
+
+// Category: Mode with internal structure or parameters
+mode RentObligation inheresIn Person {
+    dueDate: Date
+    amount: CurrencyAmount
+}

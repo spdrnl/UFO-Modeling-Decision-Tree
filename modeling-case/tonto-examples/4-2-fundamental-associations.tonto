@@ -1,0 +1,39 @@
+package FundamentalAssociations
+
+// Core types
+kind Person
+kind BreakfastPlace
+kind Staff
+quantity Coffee
+event BreakfastService
+
+// Category: Characterization (Bearer to moment)
+// Example: Mary characterizedBy Patience, Cafe characterizedBy Rating
+quality Patience
+quality Rating
+Patience inheresIn Person
+Rating inheresIn BreakfastPlace
+
+// Category: Mediation (Relator to entities)
+// Example: Marriage mediates Person, Employment mediates Cook and BreakfastPlace
+relator Marriage mediates Person, Person
+relator Employment mediates Person, BreakfastPlace
+
+// Category: Derivation (Material relation to relator)
+// Example: isMarriedTo derives from Marriage, worksFor derives from Employment
+material isMarriedTo derives Marriage
+material worksFor derives Employment
+
+// Category: Structuration (Quality to quality structure)
+// Example: CoffeeTemperature structuredBy TemperatureValue, HygieneRating structuredBy RatingValue
+quality CoffeeTemperature inheresIn Coffee
+quality HygieneRating inheresIn BreakfastPlace
+// In a full model you would connect these to value spaces (datatypes)
+
+// Category: Participation
+// Connects objects (substantials) to events (perdurants)
+association participation {
+    @participation
+    Staff [1..*]
+    BreakfastService [0..*]
+}

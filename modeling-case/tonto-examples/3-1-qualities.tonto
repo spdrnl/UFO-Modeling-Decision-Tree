@@ -1,0 +1,17 @@
+package Qualities
+
+kind Person
+kind BreakfastPlace
+quantity Coffee
+
+// Category: Perceivable quality
+// CoffeeTemperature typically uses a datatype like TemperatureValue
+quality CoffeeTemperature inheresIn Coffee
+
+// Category: Non-perceivable quality
+// BankBalance uses a datatype like CurrencyAmount
+quality BankBalance inheresIn BreakfastPlace
+
+// Category: Nominal quality
+// TableCleanliness often uses an enumeration like TableState { Clean, Dirty }
+quality TableCleanliness inheresIn BreakfastPlace // Simplified, usually inheres in Table

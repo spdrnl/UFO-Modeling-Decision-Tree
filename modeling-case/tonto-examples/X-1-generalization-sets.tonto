@@ -1,0 +1,15 @@
+package GeneralizationSets
+
+kind Person
+
+// 1. Generalization Sets & Constraints
+// Grouping specializations and defining if they are disjoint or complete
+phase Adult specializes Person
+phase Child specializes Person
+
+genset PersonLifeStage {
+    general Person
+    specifics Adult, Child
+    disjoint
+    complete
+}

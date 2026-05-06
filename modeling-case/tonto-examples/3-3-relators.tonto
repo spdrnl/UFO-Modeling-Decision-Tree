@@ -1,0 +1,16 @@
+package Relators
+
+// Core types
+kind Person
+kind BreakfastPlace
+
+// Category: Relator only
+// Example: Marriage between two persons (John and Mary)
+// We do not introduce a separate material relation; we use the relator
+relator Marriage mediates Person, Person
+
+// Category: Relator plus derived material relation
+// Example: Employment between a person (e.g., a cook) and a breakfast place (e.g., Sunrise)
+// The material relation `worksFor` is derived from the relator `Employment`
+relator Employment mediates Person, BreakfastPlace
+material worksFor derives Employment

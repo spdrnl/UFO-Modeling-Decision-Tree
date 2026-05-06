@@ -1,0 +1,37 @@
+flowchart TD
+    UH[Higher-order type]
+
+    UH --> H1{Is it a powertype?}
+
+    %% POWERTYPES
+    H1 -->|Yes| PT["Powertype (higher-order type whose instances are subtypes of a base type)"]
+    PT --> PT1{What is the base type?}
+
+    PT1 --> PT_S[Substantial powertype]
+    PT1 --> PT_M[Moment powertype]
+    PT1 --> PT_P[Perdurant powertype]
+
+    %% OTHER HIGHER-ORDER TYPES
+    H1 -->|No| HO[Other higher-order type]
+
+    %% EXAMPLES
+    PT_S_ex("e.g., PersonType (powertype of Person), EstablishmentType (powertype of BreakfastPlace)"):::example
+    PT_S --> PT_S_ex
+
+    PT_M_ex("e.g., SkillType (powertype of Mode), AgreementType (powertype of Relator)"):::example
+    PT_M --> PT_M_ex
+
+    PT_P_ex("e.g., EventType (powertype of Event), ServiceType (powertype of Activity)"):::example
+    PT_P --> PT_P_ex
+
+    HO_ex("e.g., Species, Breed (higher-order types whose instances are types, but not constrained as powertypes)"):::example
+    HO --> HO_ex
+
+    %% CLASSES
+    classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff;
+    classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
+    classDef higher fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
+
+    %% Apply styles
+    class H1,PT1 generic;
+    class UH,PT,HO,PT_S,PT_M,PT_P higher;

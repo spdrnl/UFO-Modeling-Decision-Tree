@@ -1,0 +1,23 @@
+package UnaryIndividuals
+
+// Category: Substantial individual
+// Example: John
+// In Tonto, we model the type 'Person' that John is an instance of.
+kind Person
+
+// Category: Moment individual
+// Example: Mary's patience
+// In Tonto, we model the quality 'Patience' that inheres in 'Person'.
+quality Patience inheresIn Person
+
+// Category: Perdurant individual
+// Example: John and Mary's wedding ceremony
+// In Tonto, we model the event type 'WeddingCeremony'
+// that individual weddings (like John and Mary's wedding) instantiate.
+event WeddingCeremony
+
+// Category: Situation individual
+// Example: Sunrise being understaffed
+// In Tonto, we model the situation type 'UnderstaffedSituation'
+// that can hold of a BreakfastPlace such as Sunrise.
+situation UnderstaffedSituation

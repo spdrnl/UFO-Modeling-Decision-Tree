@@ -1,0 +1,10 @@
+package RefinedClassDistinctions
+
+kind Person
+
+// 3. Refined Class Distinctions
+// Historical roles and extrinsic modes
+historicalRole DeceasedPerson specializes Person
+
+kind Bank
+extrinsicMode Debt inheresIn Person mediates Bank

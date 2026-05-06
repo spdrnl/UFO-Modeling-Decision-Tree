@@ -16,9 +16,9 @@ flowchart TD
     TR1 --> TPW[Part-Whole \nrelation]
     R0 --> TFA[Fundamental \nassociation]
 
-    TDR --> TDR_ex("e.g., isMarriedTo, worksFor"):::example
-    TPW --> TPW_ex("e.g., Engine componentOf Car, \nTree memberOf Forest"):::example
-    TFA --> TFA_ex("e.g., Person characterizedBy Age, \nMarriage mediates Person"):::example
+    TDR --> TDR_ex("e.g., isMarriedTo, worksFor Sunrise"):::example
+    TPW --> TPW_ex("e.g., Griddle componentOf Kitchen, \nStaff memberOf StaffTeam"):::example
+    TFA --> TFA_ex("e.g., Mary characterizedBy Patience, \nMarriage mediates Person"):::example
 
     U0 -->|Higher| UH[Higher-order \ntype]
     U0 -->|1st-order| U1{Endurant \nor \nperdurant?}
@@ -31,13 +31,13 @@ flowchart TD
     E1 -->|No| M0[Moment \ntype]
 
     %% EXAMPLES
-    P0_ex("e.g., Traveling,\nErosion"):::example
+    P0_ex("e.g., BreakfastService,\nWeddingCeremony"):::example
     P0 --> P0_ex
 
-    S0_ex("e.g., Table,\nSpoon,\nFurniture"):::example
+    S0_ex("e.g., Person,\nBreakfastPlace,\nCoffee"):::example
     S0 --> S0_ex
 
-    M0_ex("e.g., Color,\nSkill,\nISBN"):::example
+    M0_ex("e.g., JohnsCookingSkill,\nMarriage,\nHygieneRating"):::example
     M0 --> M0_ex
 
     %% CLASSES

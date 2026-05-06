@@ -18,19 +18,19 @@ flowchart TD
     CE1 -->|No| PROC["Process \n(complex occurrence)"]
 
     %% EXAMPLES - Atomic Actions
-    AA_ex("e.g., Turning on \na light switch, \nSigning a document"):::example
+    AA_ex("e.g., Placing an order, \nSigning a lease, \nPaying an invoice"):::example
     AA --> AA_ex
 
     %% EXAMPLES - Atomic Events
-    AEV_ex("e.g., A lightning strike, \nA single radioactive decay, \nA heartbeat"):::example
+    AEV_ex("e.g., A delivery arrival, \nA sensor alert, \nA timer expiry"):::example
     AEV --> AEV_ex
 
     %% EXAMPLES - Complex Actions (Activities)
-    CA_ex("e.g., Travelling, \nMeeting, \nSurgical procedure"):::example
+    CA_ex("e.g., Wedding ceremony, \nBreakfast service, \nBrunch event"):::example
     CA --> CA_ex
 
     %% EXAMPLES - Processes
-    PROC_ex("e.g., Erosion, \nFermentation, \nGlacier melting"):::example
+    PROC_ex("e.g., Coffee brewing process, \nDaily opening routine, \nWeekly supply cycle"):::example
     PROC --> PROC_ex
 
 

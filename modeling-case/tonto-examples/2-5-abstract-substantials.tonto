@@ -1,0 +1,11 @@
+package AbstractSubstantials
+
+// Category: Datatype
+// Used as value space for qualities such as BankBalance
+datatype CurrencyAmount
+
+// Category: Enumeration
+// Used as value space for nominal qualities such as TableCleanliness
+enumeration TableState {
+    Clean, Dirty
+}
