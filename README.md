@@ -7,7 +7,7 @@ The primary aim is to provide a clear overview of the different UFO entities, he
 
 After you get a "feel", reading official UFO documentation should be more straightforward. It is recommended to do this, since the tree is a practical guide and not meant to be a replacement for the official documentation.
 
-<img src="00-Start.png" alt="UFO Decision Tree Preview" style="width:50%; height:auto;display: block;">
+<img src="decision-tree/png/00-Start.png" alt="UFO Decision Tree Preview" style="width:50%; height:auto;display: block;">
 
 ## Key Characteristics
 To make modeling as efficient as possible, this decision tree follows a few design principles:
@@ -29,6 +29,7 @@ To make modeling as efficient as possible, this decision tree follows a few desi
 - Situation: Includes situation individuals from recent UFO extensions, representing states of affairs that trigger or result from events.
 
 ## Getting Started
+A PNG rendering of the tree is provided in the `decision-tree/png` folder.
 1. Start here: Open `00-Start.png` to classify your term as Individual or Universal
 2. For Types: Follow the Universal branch through Substantial, Moment, or Perdurant trees
 3. For Instances: Open `01-Individual.png` to navigate instance-level entities and relations
@@ -65,7 +66,7 @@ As an Instance (Individual):
 
   → Result: Moment individual (specifically: a relator individual)
 
-## Theoretical Liberties and streamlining
+## Theoretical Liberties and Streamlining
 To keep the tree accessible for rapid modeling, some strategic "corner-cutting" was applied where a formal distinction might cause "decision fatigue" for beginners:
 
 - Participation Placement: Placed in the Relational tree to emphasize its role as a link between objects and events.

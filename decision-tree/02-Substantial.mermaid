@@ -13,7 +13,7 @@ flowchart TD
     S_CA -->|Concrete| SS{"Sortal?\n(identity providing)"}
 
     SS -->|Yes| S1{"Rigid?\n(non-changeable)"}
-    SS -->|No| M_X{"Rigid?\n(non-changeable)"}
+    SS -->|No| M_X{"Rigid,\nsemi-rigid,\nnon-rigid?\n(changeability)"}
 
     %% Sortals
     S1 -->|Yes| RG{Ultimate \nsortal \nor \nsubkind?}
@@ -29,11 +29,9 @@ flowchart TD
     DR -->|No| PH[Phase]
 
     %% Non-Sortals (Mixins)
-    M_X -->|Yes| CAT[Category]
-    M_X -->|No| M_SR{Semi-rigid?}
-
-    M_SR -->|Yes| MIX[Semi-Rigid Mixin]
-    M_SR -->|No| M_DX{Relationally\ndependent?}
+    M_X -->|Rigid| CAT[Category]
+    M_X -->|Semi-rigid| MIX[Semi-Rigid Mixin]
+    M_X -->|Non-rigid| M_DX{Relationally\ndependent?}
 
     M_DX -->|Yes| RMX[RoleMixin]
     M_DX -->|No| PMX[PhaseMixin]
@@ -57,7 +55,7 @@ flowchart TD
     QTY_ex("e.g., Water, Coffee, Gold"):::example
     QTY --> QTY_ex
 
-    CAT_ex("e.g., Furniture, PhysicalObject"):::example
+    CAT_ex("e.g., Furniture, Cutlery"):::example
     CAT --> CAT_ex
 
     MIX_ex("e.g., Animal, InsuredObject"):::example
