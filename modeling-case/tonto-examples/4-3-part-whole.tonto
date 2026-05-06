@@ -3,8 +3,9 @@ package PartWhole
 // Core types
 kind Grill
 kind Kitchen
-kind Staff
-kind StaffTeam
+kind StaffMember
+collective Staff
+collective StaffTeam
 quantity Milk
 quantity Butter
 kind DisplayCase
@@ -32,16 +33,16 @@ relation Kitchen [1] <>-- hasSink -- [1..*] Sink
 
 
 // Category: MemberOf (Collective)
-// Example: Staff memberOf StaffTeam
+// Example: StaffMember memberOf StaffTeam
 @memberOf
-relation StaffTeam [1] <>-- hasMember -- [0..*] Staff
+relation StaffTeam [1] <>-- hasMember -- [0..*] StaffMember
 
 // Category: SubCollectionOf (Collection)
 // Example: WeekendStaff subCollectionOf FullStaffTeam
-// 'WeekendStaff' and 'FullStaffTeam' are collections built from Staff members
+// 'WeekendStaff' and 'FullStaffTeam' are collections built from StaffMember members
 collective WeekendStaff {
     @memberOf
-    [1] <>-- members -- [6..6] Staff
+    [1] <>-- members -- [6..6] StaffMember
 }
 
 collective FullStaffTeam

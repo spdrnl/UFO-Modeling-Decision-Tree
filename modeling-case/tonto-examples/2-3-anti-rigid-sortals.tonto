@@ -1,10 +1,22 @@
 package AntiRigidSortals
 
 kind Person
+kind BreakfastPlace
 
 // Category: Role (anti-rigid, relational)
 // Example: A Person (e.g., Rosa) can temporarily be a Customer of Sunrise Breakfast Place
 role Customer specializes Person
+relator CustomerRelationship
+@mediation
+relation CustomerRelationship [1] -- mediatesCustomer -- [1] Customer
+@mediation
+relation CustomerRelationship [1] -- mediatesPlace -- [1] BreakfastPlace
 
 // Category: Phase (anti-rigid, intrinsic and temporal)
 phase Adult specializes Person
+phase Child specializes Person
+
+disjoint complete genset PersonLifeStage {
+    general Person
+    specifics Child, Adult
+}
