@@ -24,13 +24,13 @@ association hasSink {
     Sink [1..*]
 }
 
-// or inline declaration with implicit Kitchen [1..1]
-
-kind Kitchen {
-    // A Kitchen contains at least one Sink
-    @componentOf
-    sinks: Sink [1..*]
-}
+// or use an inline declaration with implicit Kitchen [1..1]
+//
+// kind Kitchen {
+//     // A Kitchen contains at least one Sink
+//     @componentOf
+//     sinks: Sink [1..*]
+// }
 
 
 // Category: MemberOf (Collective)
@@ -59,4 +59,3 @@ Butter subQuantityOf ButterBlock
 // Example: Croissant in DisplayCase, Eggs in Refrigerator
 Croissant in DisplayCase
 EggCarton in Refrigerator
-

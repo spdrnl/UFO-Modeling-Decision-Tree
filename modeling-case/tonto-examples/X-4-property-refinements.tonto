@@ -1,6 +1,6 @@
-package PropertyRefinements
-
 import PartWhole
+
+package PropertyRefinements
 
 // 4. Property Refinements
 // Subsets and redefines
