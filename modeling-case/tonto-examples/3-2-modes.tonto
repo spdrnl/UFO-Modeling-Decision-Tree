@@ -1,6 +1,7 @@
 package Modes
 
 kind Person
+datatype CurrencyAmount
 
 // Category: Mode as a way of being
 mode CookingSkill

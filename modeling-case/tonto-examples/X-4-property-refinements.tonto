@@ -6,7 +6,7 @@ package PropertyRefinements
 // Subsets and redefines
 kind Kitchen
 kind Sink
-kind IndustrialSink specializes Sink
+subkind IndustrialSink specializes Sink
 
 @componentOf
 relation Kitchen [1] -- hasSink -- [1..*] (sinks) Sink
