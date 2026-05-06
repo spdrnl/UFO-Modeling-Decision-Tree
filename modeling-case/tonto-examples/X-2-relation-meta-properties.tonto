@@ -4,25 +4,16 @@ kind Person
 
 // 2. Relation Meta-Properties
 // Defining formal properties of relations
-relation isNextTo {
-    symmetric
-    -- Person
-    -- Person
-}
+// Symmetry is documented here as a modeling note; it is not executable Tonto syntax.
+@formal
+relation Person [0..*] -- isNextTo -- [0..*] Person
 
-relation isParentOf {
-    inverseOf isChildOf
-    -- Person
-    -- Person
-}
+@formal
+relation Person [0..*] -- isParentOf -- [0..*] Person inverseOf Person.isChildOf
 
-relation isChildOf {
-    -- Person
-    -- Person
-}
+@formal
+relation Person [0..*] -- isChildOf -- [0..*] Person
 
-relation isAncestorOf {
-    transitive
-    -- Person
-    -- Person
-}
+// Transitivity is documented here as a modeling note; it is not executable Tonto syntax.
+@formal
+relation Person [0..*] -- isAncestorOf -- [0..*] Person

@@ -8,14 +8,8 @@ kind Kitchen
 kind Sink
 kind IndustrialSink specializes Sink
 
-association hasSink {
-    @componentOf
-    Kitchen [1..1]
-    Sink [1..*]
-}
+@componentOf
+relation Kitchen [1] -- hasSink -- [1..*] (sinks) Sink
 
-association hasIndustrialSink {
-    @componentOf
-    Kitchen [1..1]
-    industrialSinks: IndustrialSink [1..*] { subsets sinks }
-}
+@componentOf
+relation Kitchen [1] -- hasIndustrialSink -- [1..*] ({ subsets Kitchen.hasSink.sinks } industrialSinks) IndustrialSink

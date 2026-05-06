@@ -8,7 +8,9 @@ kind Person
 // Category: Moment individual
 // Example: Mary's patience
 // In Tonto, we model the quality 'Patience' that inheres in 'Person'.
-quality Patience inheresIn Person
+quality Patience
+@characterization
+relation Patience [1] -- inheresIn -- [1] Person
 
 // Category: Perdurant individual
 // Example: John and Mary's wedding ceremony

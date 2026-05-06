@@ -11,29 +11,46 @@ event BreakfastService
 // Example: Mary characterizedBy Patience, Cafe characterizedBy Rating
 quality Patience
 quality Rating
-Patience inheresIn Person
-Rating inheresIn BreakfastPlace
+@characterization
+relation Patience [1] -- inheresIn -- [1] Person
+@characterization
+relation Rating [1] -- inheresIn -- [1] BreakfastPlace
 
 // Category: Mediation (Relator to entities)
 // Example: Marriage mediates Person, Employment mediates Cook and BreakfastPlace
-relator Marriage mediates Person, Person
-relator Employment mediates Person, BreakfastPlace
+relator Marriage
+@mediation
+relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+@mediation
+relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+relator Employment
+@mediation
+relation Employment [1] -- mediatesEmployee -- [1] Person
+@mediation
+relation Employment [1] -- mediatesEmployer -- [1] BreakfastPlace
 
 // Category: Derivation (Material relation to relator)
 // Example: isMarriedTo derives from Marriage, worksFor derives from Employment
-material isMarriedTo derives Marriage
-material worksFor derives Employment
+@material
+relation Person [0..1] -- isMarriedTo -- [0..1] Person
+@derivation
+relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage
+@material
+relation Person [0..*] -- worksFor -- [0..*] BreakfastPlace
+@derivation
+relation Person.worksFor [1] -- derivedFrom -- [1] Employment
 
 // Category: Structuration (Quality to quality structure)
 // Example: CoffeeTemperature structuredBy TemperatureValue, HygieneRating structuredBy RatingValue
-quality CoffeeTemperature inheresIn Coffee
-quality HygieneRating inheresIn BreakfastPlace
+quality CoffeeTemperature
+quality HygieneRating
+@characterization
+relation CoffeeTemperature [1] -- inheresIn -- [1] Coffee
+@characterization
+relation HygieneRating [1] -- inheresIn -- [1] BreakfastPlace
 // In a full model you would connect these to value spaces (datatypes)
 
 // Category: Participation
 // Connects objects (substantials) to events (perdurants)
-association participation {
-    @participation
-    Staff [1..*]
-    BreakfastService [0..*]
-}
+@participation
+relation Staff [1..*] -- participatesIn -- [0..*] BreakfastService

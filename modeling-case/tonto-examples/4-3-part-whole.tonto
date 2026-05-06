@@ -15,47 +15,51 @@ kind Sink
 
 // Category: ComponentOf (Functional complex)
 // Example: Grill componentOf Kitchen, Kitchen componentOf BreakfastPlace
-Grill componentOf Kitchen
+@componentOf
+relation Kitchen [1] <>-- hasGrill -- [0..*] Grill
 
 // Every Kitchen has at least one Sink as a component
-association hasSink {
-    @componentOf
-    Kitchen [1..1]
-    Sink [1..*]
-}
+@componentOf
+relation Kitchen [1] <>-- hasSink -- [1..*] Sink
 
 // or use an inline declaration with implicit Kitchen [1..1]
 //
 // kind Kitchen {
 //     // A Kitchen contains at least one Sink
 //     @componentOf
-//     sinks: Sink [1..*]
+//     [1] <>-- sinks -- [1..*] Sink
 // }
 
 
 // Category: MemberOf (Collective)
 // Example: Staff memberOf StaffTeam
-Staff memberOf StaffTeam
+@memberOf
+relation StaffTeam [1] <>-- hasMember -- [0..*] Staff
 
 // Category: SubCollectionOf (Collection)
 // Example: WeekendStaff subCollectionOf FullStaffTeam
 // 'WeekendStaff' and 'FullStaffTeam' are collections built from Staff members
 collective WeekendStaff {
     @memberOf
-    members: Staff [6..6]
+    [1] <>-- members -- [6..6] Staff
 }
 
 collective FullStaffTeam
 
 // WeekendStaff is still a subset of the FullStaffTeam
-WeekendStaff subCollectionOf FullStaffTeam
+@subCollectionOf
+relation FullStaffTeam [1] <>-- hasSubTeam -- [0..*] WeekendStaff
 
 // Category: SubQuantityOf (Quantity)
 // Example: Butter subQuantityOf ButterBlock
 quantity ButterBlock
-Butter subQuantityOf ButterBlock
+@subQuantityOf
+relation ButterBlock [1] <>-- hasSubQuantity -- [0..*] Butter
 
 // Category: Containment (Non-standard, spatial)
 // Example: Croissant in DisplayCase, Eggs in Refrigerator
-Croissant in DisplayCase
-EggCarton in Refrigerator
+// `containment` is a custom stereotype here, not a UFO part-whole stereotype.
+@containment
+relation DisplayCase [1] <>-- contains -- [0..*] Croissant
+@containment
+relation Refrigerator [1] <>-- contains -- [0..*] EggCarton

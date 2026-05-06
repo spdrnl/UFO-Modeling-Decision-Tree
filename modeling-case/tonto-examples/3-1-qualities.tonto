@@ -6,12 +6,18 @@ quantity Coffee
 
 // Category: Perceivable quality
 // CoffeeTemperature typically uses a datatype like TemperatureValue
-quality CoffeeTemperature inheresIn Coffee
+quality CoffeeTemperature
+@characterization
+relation CoffeeTemperature [1] -- inheresIn -- [1] Coffee
 
 // Category: Non-perceivable quality
 // BankBalance uses a datatype like CurrencyAmount
-quality BankBalance inheresIn BreakfastPlace
+quality BankBalance
+@characterization
+relation BankBalance [1] -- inheresIn -- [1] BreakfastPlace
 
 // Category: Nominal quality
 // TableCleanliness often uses an enumeration like TableState { Clean, Dirty }
-quality TableCleanliness inheresIn BreakfastPlace // Simplified, usually inheres in Table
+quality TableCleanliness // Simplified, usually inheres in Table
+@characterization
+relation TableCleanliness [1] -- inheresIn -- [1] BreakfastPlace

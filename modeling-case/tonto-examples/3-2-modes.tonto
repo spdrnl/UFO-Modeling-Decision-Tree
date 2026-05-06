@@ -3,10 +3,14 @@ package Modes
 kind Person
 
 // Category: Mode as a way of being
-mode CookingSkill inheresIn Person
+mode CookingSkill
+@characterization
+relation CookingSkill [1] -- inheresIn -- [1] Person
 
 // Category: Mode with internal structure or parameters
-mode RentObligation inheresIn Person {
+mode RentObligation {
     dueDate: Date
     amount: CurrencyAmount
 }
+@characterization
+relation RentObligation [1] -- inheresIn -- [1] Person

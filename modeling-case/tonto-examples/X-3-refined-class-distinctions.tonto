@@ -7,4 +7,8 @@ kind Person
 historicalRole DeceasedPerson specializes Person
 
 kind Bank
-extrinsicMode Debt inheresIn Person mediates Bank
+extrinsicMode Debt
+@characterization
+relation Debt [1] -- inheresIn -- [1] Person
+@externalDependence
+relation Debt [1] -- dependsOn -- [1] Bank
