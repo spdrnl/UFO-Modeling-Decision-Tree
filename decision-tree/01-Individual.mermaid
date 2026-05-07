@@ -2,7 +2,15 @@ flowchart TD
     A[Individual] --> I_UB{Unary \nor \nbinary?}
 
     %% UNARY INDIVIDUALS
-    I_UB -->|Unary| I0{Endurant/\nperdurant/\nor situation?}
+    I_UB -->|Unary| I_COA{Concrete or \nabstract?}
+
+    %% ABSTRACT INDIVIDUALS
+    I_COA -->|Abstract| I_ABS["Abstract \nindividual \n(Value)"]
+    I_ABS_ex("e.g., $10.00, \nMonday, \nthe hex code #FF0000"):::example
+    I_ABS --> I_ABS_ex
+
+    %% CONCRETE INDIVIDUALS
+    I_COA -->|Concrete| I0{Endurant/\nperdurant/\nor situation?}
 
     I0 -->|Endurant| IE{Substantial \nor \nmoment?}
     I0 -->|Perdurant| IP[Event/\nactivity/\nprocess\nindividual]
@@ -60,12 +68,14 @@ flowchart TD
     classDef relator fill:#aaaaaa,stroke:#ea580c,stroke-width:2px,color:#000;
     classDef meronymic fill:#aaaaaa,stroke:#eab308,stroke-width:2px,color:#000;
     classDef fundamental fill:#aaaaaa,stroke:#a855f7,stroke-width:2px,color:#000;
+    classDef abstract fill:#f3f4f6,stroke:#9ca3af,stroke-width:2px,color:#000;
     classDef situation fill:#aaaaaa,stroke:#9333ea,stroke-width:2px,color:#000;
 
     %% Apply styles
-    class I_UB,I0,IE,ROA,DOPR,DR,PWI,FA1 generic;
+    class I_UB,I_COA,I0,IE,ROA,DOPR,DR,PWI,FA1 generic;
     class IP perdurant;
     class IES substantial;
+    class I_ABS abstract;
     class IIM intrinsic;
     class FORI,MATI relator;
     class PWI meronymic;
