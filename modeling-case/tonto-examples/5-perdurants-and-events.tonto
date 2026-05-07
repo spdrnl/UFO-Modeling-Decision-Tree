@@ -8,15 +8,22 @@ intrinsicMode CookingSkill
 
 // Category: Atomic Action
 event PlacingOrder
+event PaymentTransaction
 
 // Category: Atomic Occurrence
+event DeliveryArrival
 event SensorAlert
+event TimerExpiry
 
 // Category: Complex Activity (Action)
+event WeddingCeremony
 event BreakfastService
+event BrunchEvent
 
 // Category: Complex Process (Occurrence)
 event CoffeeBrewingProcess
+event DailyOpeningRoutine
+event WeeklySupplyCycle
 
 // Category: Process
 process PancakePreparation

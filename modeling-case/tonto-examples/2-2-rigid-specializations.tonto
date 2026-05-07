@@ -1,6 +1,0 @@
-package RigidSpecializations
-
-// Category: Subkind
-kind BreakfastPlace
-
-subkind FamilyRunBreakfastPlace specializes BreakfastPlace

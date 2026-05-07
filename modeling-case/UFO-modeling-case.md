@@ -86,7 +86,7 @@ These examples correspond to `02a-Substantial.mermaid` and are useful for helpin
 #### 2.3 Anti-rigid sortals
 
 - Role: Husband, Wife, Cook, Customer, Employee, Supplier, Tenant. A person can stop being any of these without ceasing to be a person.
-- Phase: Child, Teenager, Adult, RetiredOwner, MorningShiftWorker-if the distinction is temporal and intrinsic rather than relational. Use phase when the classification reflects a changing condition of the same bearer rather than dependence on another entity.
+- Phase: Child, Teenager, Adult, Senior. Use phase when the classification reflects a changing condition of the same bearer rather than dependence on another entity.
 
 #### 2.4 Non-sortals
 

@@ -1,0 +1,98 @@
+package RelationsAndAssociations
+
+// These examples correspond to 04a-Relation.mermaid and 04b-Association.mermaid
+
+kind Person
+kind BreakfastPlace
+kind Staff
+quantity Coffee
+event BreakfastService
+
+// --- 4a.1 Domain Relations ---
+
+// Formal relation: John is older than Mary, Sunrise is closer to market
+@formal
+relation Person [1] -- isOlderThan -- [1] Person
+
+// Material relation: John is married to Mary, Mary employs Alex
+relator Marriage
+@mediation
+relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+@mediation
+relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+
+@material
+relation Person [0..1] -- isMarriedTo -- [0..1] Person
+@derivation
+relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage
+
+// --- 4a.2 Part-whole Relations ---
+
+// ComponentOf: grill component of kitchen, kitchen component of cafe
+kind Grill
+kind Kitchen
+@componentOf
+relation Kitchen [1] <>-- hasGrill -- [0..*] Grill
+@componentOf
+relation BreakfastPlace [1] <>-- hasKitchen -- [1] Kitchen
+
+// MemberOf: Staff member of StaffTeam
+collective StaffTeam
+@memberOf
+relation StaffTeam [1] <>-- hasMember -- [1..*] Staff
+
+// SubCollectionOf: WeekendStaff subcollection of FullStaff
+collective FullStaff
+collective WeekendStaff
+@subCollectionOf
+relation FullStaff [1] <>-- hasSubcollection -- [1] WeekendStaff
+
+// SubQuantityOf: Milk subquantity of MilkStock
+quantity Milk
+quantity MilkStock
+@subQuantityOf
+relation MilkStock [1] <>-- hasSubquantity -- [1..*] Milk
+
+// --- 4b Fundamental Associations ---
+
+// Characterization: Mary characterizedBy Patience
+quality Patience
+@characterization
+relation Patience [1] -- inheresIn -- [1] Person
+
+// Mediation: Marriage mediates Person (see above)
+
+// Derivation: isMarriedTo derivesFrom Marriage (see above)
+
+// Structuration: CoffeeTemperature structuredBy TemperatureValue
+quality CoffeeTemperature
+datatype TemperatureValue
+@characterization
+relation CoffeeTemperature [1] -- inheresIn -- [1] Coffee
+@value
+relation CoffeeTemperature [1] -- hasValue -- [1] TemperatureValue
+
+// Participation: John participates in BreakfastService
+@participation
+relation Staff [1..*] -- participatesIn -- [0..*] BreakfastService
+
+// Creation/Termination: PancakePreparation creates Meal
+event PancakePreparation
+kind Meal
+@creation
+relation PancakePreparation [1] -- creates -- [1] Meal
+
+// Manifestation: PancakePreparation manifests CookingSkill
+intrinsicMode CookingSkill
+@manifestation
+relation PancakePreparation [1..*] -- manifests -- [1] CookingSkill
+
+// BringsAbout: PlacingOrder bringsAbout OrderPlacedSituation
+event PlacingOrder
+situation OrderPlacedSituation
+@bringsAbout
+relation PlacingOrder [1] -- resultsIn -- [1] OrderPlacedSituation
+
+// Triggers: OrderPlacedSituation triggers PancakePreparation
+@triggers
+relation OrderPlacedSituation [1] -- causes -- [1] PancakePreparation

@@ -16,11 +16,11 @@ event BrunchEvent
 powertype PersonType
 type CookType (instanceOf PersonType)
 type CustomerType (instanceOf PersonType)
-@instantiation
-relation Cook [1] -- instantiates -- [1] PersonType
 
 // EstablishmentType is a powertype of BreakfastPlace
 powertype EstablishmentType
+type BreakfastPlaceType (instanceOf EstablishmentType)
+type SupplierCompanyType (instanceOf EstablishmentType)
 
 // Category: Moment powertypes
 // SkillType is a powertype of Mode (instances are types like CookingSkill)

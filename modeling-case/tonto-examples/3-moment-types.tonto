@@ -1,0 +1,79 @@
+package MomentTypes
+
+// These examples correspond to 03-Moment.mermaid
+
+kind Person
+kind BreakfastPlace
+quantity Coffee
+
+// --- 3.1 Qualities ---
+
+// Perceivable quality: color of cafe sign, smell of coffee, temperature of coffee
+quality CafeSignColor
+quality CoffeeSmell
+quality CoffeeTemperature
+@characterization
+relation CoffeeTemperature [1] -- inheresIn -- [1] Coffee
+
+// Non-perceivable quality: cafe's bank balance, John's age, restaurant tax rate
+quality BankBalance
+quality PersonAge
+quality RestaurantTaxRate
+@characterization
+relation BankBalance [1] -- inheresIn -- [1] BreakfastPlace
+
+// Nominal quality: order status, table cleanliness
+enum TableState { Clean, Dirty }
+quality TableCleanliness
+@characterization
+relation TableCleanliness [1] -- inheresIn -- [1] BreakfastPlace
+
+// --- 3.2 Modes and Dispositions ---
+
+// Intrinsic Mode: Mary's mood, John's belief, cook's intention
+mode Mood
+mode Belief
+mode Intention
+@characterization
+relation Mood [1] -- inheresIn -- [1] Person
+
+// Disposition: toaster's fragility, knife's sharpness, John's cooking skill
+intrinsicMode Fragility
+intrinsicMode Sharpness
+intrinsicMode CookingSkill
+@characterization
+relation CookingSkill [1] -- inheresIn -- [1] Person
+
+// Extrinsic Mode: obligation to supplier, reservation right
+extrinsicMode SupplierObligation
+extrinsicMode ReservationRight
+@characterization
+relation SupplierObligation [1] -- inheresIn -- [1] Person
+
+// Mode with internal structure
+datatype CurrencyAmount
+mode RentObligation {
+    dueDate: Date
+    amount: CurrencyAmount
+}
+
+// --- 3.3 Relators ---
+
+// Relator Only: Marriage, Employment, SupplyContract
+relator Marriage
+@mediation
+relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+@mediation
+relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+
+// Relator plus derived material relation: Employment grounding worksFor
+relator Employment
+@mediation
+relation Employment [1] -- mediatesEmployee -- [1] Person
+@mediation
+relation Employment [1] -- mediatesEmployer -- [1] BreakfastPlace
+
+@material
+relation Person [0..*] -- worksFor -- [0..*] BreakfastPlace
+@derivation
+relation Person.worksFor [1] -- derivedFrom -- [1] Employment

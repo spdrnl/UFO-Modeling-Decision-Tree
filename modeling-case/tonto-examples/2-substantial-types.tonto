@@ -1,0 +1,63 @@
+package SubstantialTypes
+
+// These examples correspond to 02a-Substantial.mermaid
+
+// --- 2.1 Ultimate Sortals ---
+
+// Kind: Person, BreakfastPlace, SupplierCompany
+kind Person
+kind BreakfastPlace
+kind SupplierCompany
+
+// Collective: StaffTeam
+collective StaffTeam
+
+// Quantity: Coffee, Milk, Batter
+quantity Coffee
+quantity Milk
+quantity Batter
+
+// --- 2.2 Rigid Specializations ---
+
+// Subkind: MarriedPerson, CafeOwner, FamilyRunBreakfastPlace
+subkind MarriedPerson specializes Person
+subkind CafeOwner specializes Person
+subkind FamilyRunBreakfastPlace specializes BreakfastPlace
+
+// --- 2.3 Anti-rigid Sortals ---
+
+// Role: Customer, Employee, Supplier
+role Customer specializes Person
+role Employee specializes Person
+role Supplier specializes Person
+
+// Phase: Child, Adult, Senior
+phase Child specializes Person
+phase Adult specializes Person
+phase Senior specializes Person
+
+disjoint complete genset PersonLifeStage {
+    general Person
+    specifics Child, Adult, Senior
+}
+
+// --- 2.4 Non-sortals ---
+
+// Category: PhysicalObject, Agent, CommercialEstablishment
+category PhysicalObject
+category Agent
+category CommercialEstablishment
+
+// Mixin: SkilledWorker, InsuredAsset, MenuItem
+mixin SkilledWorker
+mixin InsuredAsset
+mixin MenuItem
+
+// RoleMixin: ServiceProvider, FoodBuyer, Employer
+roleMixin ServiceProvider
+roleMixin FoodBuyer
+roleMixin Employer
+
+// PhaseMixin: AvailableResource, HeatedConsumable
+phaseMixin AvailableResource
+phaseMixin HeatedConsumable

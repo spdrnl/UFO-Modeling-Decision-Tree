@@ -1,0 +1,56 @@
+package Individuals
+
+// These examples correspond to 01-Individual.mermaid
+
+// --- 1.1 Unary Individuals ---
+
+// Concrete substantial individual
+// Example: John, Mary, Sunrise Breakfast Place
+kind Person
+kind BreakfastPlace
+
+// Abstract individual (Value)
+// Example: $10.00, Monday
+datatype CurrencyAmount
+enum DayOfWeek { Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday }
+
+// Moment individual
+// Example: Mary's patience
+quality Patience
+@characterization
+relation Patience [1] -- inheresIn -- [1] Person
+
+// Perdurant individual
+// Example: John and Mary's wedding ceremony
+event WeddingCeremony
+
+// Situation individual
+// Example: Sunrise being understaffed
+situation UnderstaffedSituation
+
+// --- 1.2 Binary Individuals ---
+
+// Relation at the individual level (Formal)
+// Example: John is older than Mary
+@formal
+relation Person [1] -- isOlderThan -- [1] Person
+
+// Relation at the individual level (Material)
+// Example: John isMarriedTo Mary
+relator Marriage
+@mediation
+relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+@mediation
+relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+
+@material
+relation Person [0..1] -- isMarriedTo -- [0..1] Person
+@derivation
+relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage
+
+// Relation at the individual level (Part-whole)
+// Example: this grill componentOf this kitchen
+kind Grill
+kind Kitchen
+@componentOf
+relation Kitchen [1] <>-- hasGrill -- [0..*] Grill

@@ -1,7 +1,12 @@
 package StartExamples
 
-// Individual-level reading (not modeled in Tonto):
-// Mary : Person   // Mary is an instance of the kind Person
+// Examples for the root of the decision tree
 
-// Type-level declaration (what Tonto actually represents)
+// Individual-level reading (not usually modeled as declarations in Tonto):
+// "John" is an individual; "Person" is a type.
+// "Marriage" is a type; "the specific wedding ceremony" is an individual.
+
+// Type-level declarations in Tonto:
 kind Person
+event BreakfastService
+relator Marriage

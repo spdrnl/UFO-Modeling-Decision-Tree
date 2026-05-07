@@ -5,7 +5,8 @@ package OtherHigherOrderTypes
 type Species
 type Breed
 type ProductCategory
+type EstablishmentCategory // e.g., "Restaurant", "Cafe", "Retail"
 
 // Examples of instances (types) for the higher-order types
+// BreakfastPlace (a type) is an instance of EstablishmentCategory
 // GoldenRetriever (a type) is an instance of Breed
-// Breed (a higher-order type) has instances that are themselves types
