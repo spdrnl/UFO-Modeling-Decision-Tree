@@ -1,4 +1,4 @@
-import AbstractSubstantials as Abstracts
+import AbstractTypes as Abstracts
 
 global package SharedLanguageElements
 
