@@ -1,0 +1,49 @@
+flowchart TD
+    RT["Associational term"] --> FA1{What does it \nconnect?}
+
+    FA1 -->|Bearer to moment| CHAR["Characterization\n(Inherence for individuals)"]
+    FA1 -->|Relator to entities| MED[Mediation]
+    FA1 -->|Material relation to relator| DER[Derivation]
+    FA1 -->|Quality to quality structure| STRU[Structuration]
+    FA1 -->|Object to event| PART[Participation]
+    FA1 -->|Event to object| CRETERM["Creation / \nTermination"]
+    FA1 -->|Event to mode| MAN[Manifestation]
+    FA1 -->|Event to situation| BA[BringsAbout]
+    FA1 -->|Situation to event| TRIG[Triggers]
+
+    %% EXAMPLES - Fundamental Associations
+    CHAR_ex("e.g., Mary \ncharacterizedBy Patience, \nCafe characterizedBy Rating"):::example
+    CHAR --> CHAR_ex
+
+    MED_ex("e.g., Marriage \nmediates Person, \nEmployment mediates Cook and Sunrise"):::example
+    MED --> MED_ex
+
+    DER_ex("e.g., isMarriedTo \nderives from Marriage, \nworksFor derives from Employment"):::example
+    DER --> DER_ex
+
+    STRU_ex("e.g., CoffeeTemperature \nstructuredBy TemperatureValue, \nHygieneRating structuredBy RatingValue"):::example
+    STRU --> STRU_ex
+
+    PART_ex("e.g., Cook participatesIn BreakfastService, \nCustomer participatesIn PaymentEvent"):::example
+    PART --> PART_ex
+
+    CRETERM_ex("e.g., PancakePreparation \ncreates Meal, \nBreakfastService terminates ServiceFinished"):::example
+    CRETERM --> CRETERM_ex
+
+    MAN_ex("e.g., PancakePreparation \nmanifests CookingSkill"):::example
+    MAN --> MAN_ex
+
+    BA_ex("e.g., PlacingOrder \nbringsAbout OrderPlaced"):::example
+    BA --> BA_ex
+
+    TRIG_ex("e.g., OrderPlaced \ntriggers PancakePreparation"):::example
+    TRIG --> TRIG_ex
+
+    %% CLASSES
+    classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff;
+    classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
+    classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
+
+    %% Apply styles
+    class RT,FA1 generic;
+    class CHAR,MED,DER,PART,STRU,CRETERM,MAN,BA,TRIG fundamental;

@@ -1,0 +1,23 @@
+flowchart TD
+
+    %% ABSTRACT SUBSTANTIALS
+    ABST[Abstract Type]
+    ABST --> ABST_Q{Fixed value \nspace?}
+    ABST_Q -->|Yes| ENUM[Enumeration]
+    ABST_Q -->|No| DT[Datatype]
+
+    %% EXAMPLE BOXES + LINKS
+    DT_ex("e.g., CurrencyAmount, \nTemperatureValue, \nRatingValue"):::example
+    DT --> DT_ex
+
+    ENUM_ex("e.g., DayOfWeek(Mon, Tue...), \nTableState(Clean, Dirty)"):::example
+    ENUM --> ENUM_ex
+
+    %% CLASSES
+    classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff;
+    classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
+    classDef substantial fill:#dcfce7,stroke:#dcfce7,stroke-width:2px,color:#000;
+
+    %% generic / neutral nodes
+    class ABST,DT,ENUM substantial;
+    class ABST_Q generic;

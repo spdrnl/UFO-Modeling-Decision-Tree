@@ -15,7 +15,7 @@ flowchart TD
     I_UB -->|Binary| ROA{"Relation \nor association?"}
 
     ROA --> DOPR{"Domain \nor part-whole \nrelation?"}
-    ROA --> FA["Fundamental \nAssociation"]
+    ROA --> FA["Fundamental \nassociation \nindividual"]
 
     %% DOMAIN RELATIONS - INDIVIDUAL LEVEL
     DOPR --> DR{Depends on \nintrinsic properties?}
@@ -25,12 +25,6 @@ flowchart TD
     %% PART-WHOLE RELATIONS - INDIVIDUAL LEVEL
     DOPR --> PWI[Part-whole \nindividual]
 
-    %% FUNDAMENTAL ASSOCIATIONS - INDIVIDUAL LEVEL
-    FA --> FA1{What does it \nconnect?}
-    FA1 -->|Moment to bearer| INHER[Inherence\nindividual]
-    FA1 -->|Relator to entities| MEDI[Mediation\nindividual]
-    FA1 -->|Quality to value\nin quality structure| STRU[Structuration]
-    FA1 -->|Event to participants| PARTI[Participation\nindividual]
 
     %% EXAMPLES
     IES_ex("e.g., John,\nMary,\nSunrise Breakfast Place"):::example
@@ -51,17 +45,8 @@ flowchart TD
     MATI_ex("e.g., John isMarriedTo Mary,\nMary worksFor Sunrise"):::example
     MATI --> MATI_ex
 
-    INHER_ex("e.g., Mary's patience \ninheres in Mary"):::example
-    INHER --> INHER_ex
-
-    MEDI_ex("e.g., Marriage #101 \nmediates John and Mary"):::example
-    MEDI --> MEDI_ex
-
-    STRU_ex("e.g., Mary's height \\nstructured by 168cm, \\ncoffee temperature \\nstructured by 72°C"):::example
-    STRU --> STRU_ex
-
-    PARTI_ex("e.g., John participates \nin this breakfast service"):::example
-    PARTI --> PARTI_ex
+    FA_ex("e.g., Mary's patience inheres in Mary,\nMary's height structured by 168cm,\nJohn participates in this breakfast service"):::example
+    FA --> FA_ex
 
     PWI_ex("e.g., this grill componentOf this kitchen, \nJohn memberOf the staff team, \nthis milk subQuantityOf this carton"):::example
     PWI --> PWI_ex
