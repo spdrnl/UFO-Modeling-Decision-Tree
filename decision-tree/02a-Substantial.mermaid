@@ -8,8 +8,8 @@ flowchart TD
     SS -->|No| M_X{"Rigid,\nsemi-rigid,\nnon-rigid?\n(changeability)"}
 
     %% Sortals
-    S1 -->|Yes| RG{Ultimate \nsortal \nor \nsubkind?}
-    S1 -->|No| DR{Relationally\ndependent?}
+    S1 -->|Rigid| RG{Ultimate \nsortal \nor \nsubkind?}
+    S1 -->|Anti-rigid| DR{Relationally\ndependent?}
 
     RG -->|Subkind| SK[Subkind]
     RG -->|Ultimate sortal| US{Object/\ncollective/\nquantity?}
@@ -23,7 +23,7 @@ flowchart TD
     %% Non-Sortals (Mixins)
     M_X -->|Rigid| CAT[Category]
     M_X -->|Semi-rigid| MIX[Semi-Rigid Mixin]
-    M_X -->|Non-rigid| M_DX{Relationally\ndependent\nor\intrinsic?}
+    M_X -->|Anti-rigid| M_DX{Relationally\ndependent\nor intrinsic?}
 
     M_DX -->|Relational| RMX[RoleMixin]
     M_DX -->|Intrinsic| PMX[PhaseMixin]
