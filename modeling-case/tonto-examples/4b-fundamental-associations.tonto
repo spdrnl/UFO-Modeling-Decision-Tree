@@ -1,5 +1,7 @@
 package FundamentalAssociations
 
+// These examples correspond to 04b-Association.mermaid
+
 // Core types
 kind Person
 kind BreakfastPlace

@@ -1,4 +1,6 @@
-package AbstractSubstantials
+package AbstractTypes
+
+// These examples correspond to 02b-Abstract.mermaid
 
 // Category: Datatype
 // Used as value space for qualities such as BankBalance

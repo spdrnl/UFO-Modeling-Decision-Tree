@@ -31,8 +31,10 @@ The table below maps the story examples to the major branches visible in the att
 | Start | Is this an individual or a universal/type? | "John" is an individual; "Person" is a type. |
 | Individual | Is this one thing, one event, one relation, or one situation? | "John," "the wedding," "John works for Sunrise," "John being married." |
 | Substantial | Is this a kind, role, phase, collective, quantity, etc.? | Person, Customer, Employee, Child, StaffTeam, Coffee, BreakfastMenuItem. |
+| Abstract Type | Is this a datatype or an enumeration? | CurrencyAmount, DayOfWeek, BreakfastOrderStatus. |
 | Moment | Is this a quality, mode, or relator? | Mary's height, John's cooking skill, the marriage relator. |
-| Relational | Is this formal, material, mediating, participational, or part-whole? | isOlderThan, isMarriedTo, employs, participatesIn, componentOf. |
+| Relation | Is this a formal, material, or part-whole relation? | isOlderThan, isMarriedTo, employs, componentOf. |
+| Association | Is this a fundamental characterization, mediation, or participation? | characterizedBy, mediates, participatesIn. |
 | Perdurant | Is this an event, process, or event-like occurrence? | wedding ceremony, breakfast service, ingredient delivery, payment event. |
 
 ## Plain-text examples by branch
@@ -53,21 +55,23 @@ These examples correspond to the branches in `01-Individual.mermaid`.
 
 #### 1.1 Unary individuals
 
-- Substantial individual: John, Mary, Sunrise Breakfast Place, the espresso machine, one egg, one apron.
+- Concrete substantial individual: John, Mary, Sunrise Breakfast Place, the espresso machine, one egg, one apron.
+- Abstract individual (Value): $10.00, Monday, the hex code #FF0000.
 - Moment individual: Mary's patience, John's cooking skill, the café's current hygiene score, the warmth of a plate of pancakes.
 - Perdurant individual: John and Mary’s wedding ceremony, this morning’s breakfast service, a specific payment transaction, today's ingredient delivery.
 - Situation individual: John being married to Mary, Sunrise being understaffed this morning, the kitchen being ready for service, Mary being obliged to pay a supplier invoice.
 
 #### 1.2 Binary individuals
 
-- Formal relation at the individual level: John is older than Mary; table 4 is next to table 5; one coffee is hotter than another. These depend only on intrinsic or comparison-like features, not on a mediating relator.
-- Material relation at the individual level: John is married to Mary; Mary works for Sunrise; a supplier delivers to Sunrise under a contract. These are better understood as grounded in a relator such as Marriage, Employment, or SupplyAgreement.
-- Fundamental associations at the individual level: Mary’s patience inheres in Mary; this marriage mediates John and Mary; this breakfast service has participants John, Mary, and several customers.
-- Part-whole at the individual level: this griddle is component of this kitchen; this chair is member of this dining set; this milk is subquantity of this carton.
+- Relation at the individual level:
+    - Formal relation: John is older than Mary; table 4 is next to table 5; one coffee is hotter than another.
+    - Material relation: John is married to Mary; Mary works for Sunrise; a supplier delivers to Sunrise under a contract.
+    - Part-whole relation: this griddle is component of this kitchen; this chair is member of this dining set; this milk is subquantity of this carton.
+- Fundamental association individual: Mary’s patience inheres in Mary; this marriage mediates John and Mary; John participates in this breakfast service.
 
-### 2. Substantial types
+### 2. Concrete substantial types
 
-These examples correspond to `02-Substantial.mermaid` and are useful for helping a modeler distinguish identity-providing from anti-rigid classifications.
+These examples correspond to `02a-Substantial.mermaid` and are useful for helping a modeler distinguish identity-providing from anti-rigid classifications.
 
 #### 2.1 Ultimate sortals
 
@@ -91,7 +95,9 @@ These examples correspond to `02-Substantial.mermaid` and are useful for helping
 - RoleMixin: ServiceProvider, FoodBuyer, Employer, ContractParty. These collect different kinds of entities that can all play the same externally dependent role.
 - PhaseMixin: AvailableResource, BusyParticipant, OpenBusinessEntity, HeatedConsumable. These collect entities sharing a temporary intrinsic condition.
 
-#### 2.5 Abstract substantials
+### 2b. Abstract types
+
+These examples correspond to `02b-Abstract.mermaid`.
 
 - Datatype-like abstract type: CurrencyAmount, TemperatureValue, RatingValue, VATPercentage.
 - Enumeration-like abstract type: DayOfWeek, BreakfastOrderStatus, TableState, PaymentMethod.
@@ -118,17 +124,27 @@ These examples correspond to `03-Moment.mermaid`.
 - Relator only: Marriage, Employment, SupplyContract, LeaseAgreement, OwnershipArrangement.
 - Relator plus derived material relation: Marriage grounding `isMarriedTo`; Employment grounding `worksFor`; SupplyContract grounding `suppliesTo`; OwnershipArrangement grounding `coOwns`.
 
-### 4. Relational cases
+### 4a. Relations
 
-These examples correspond to `04-Relational.mermaid`.
+These examples correspond to `04a-Relation.mermaid`.
 
-#### 4.1 Domain relations
+#### 4a.1 Domain relations
 
 - Formal relation: John is older than Mary; one pancake is larger than another; Sunrise is closer to the market than to the station.
 - Material relation: John is married to Mary; Mary employs Alex; Sunrise buys from FreshFarm; Customer Sarah reserves table 2 under a reservation arrangement.
 - Relator-focused interpretation: when in doubt, ask whether the relation is backed by some social, legal, contractual, or institutional connection. If yes, model the relator and treat the binary relation as material or derived.
 
-#### 4.2 Fundamental associations
+#### 4a.2 Part-whole
+
+- ComponentOf: grill component of kitchen, kitchen component of breakfast-place, menu board component of storefront.
+- MemberOf: John member of the staff team, Mary member of the owners’ association, one chair member of the patio set if modeled collectively.
+- SubCollectionOf: the weekend-staff group subcollection of the full staff team.
+- SubQuantityOf: this milk subquantity of the milk stock; this butter portion subquantity of the butter block.
+- Containment: croissant in display case, eggs in refrigerator, cash in register drawer. Use carefully when the relation is spatial containment rather than true ontological parthood.
+
+### 4b. Fundamental associations
+
+These examples correspond to `04b-Association.mermaid`.
 
 - Characterization: Mary is characterized by her patience; the café is characterized by its hygiene rating.
 - Mediation: Marriage mediates John and Mary; Employment mediates Sunrise and Alex the cook; SupplyContract mediates Sunrise and FreshFarm.
@@ -140,14 +156,6 @@ These examples correspond to `04-Relational.mermaid`.
 - Manifestation: pancake preparation manifests John's cooking skill; careful knife work manifests the cook's knife-handling skill.
 - BringsAbout: placing an order brings about an order-placed situation; payment brings about a paid-order situation.
 - Triggers: an order-placed situation triggers pancake preparation; a low-stock situation triggers a replenishment order.
-
-#### 4.3 Part-whole
-
-- ComponentOf: grill component of kitchen, kitchen component of breakfast-place, menu board component of storefront.
-- MemberOf: John member of the staff team, Mary member of the owners’ association, one chair member of the patio set if modeled collectively.
-- SubCollectionOf: the weekend-staff group subcollection of the full staff team.
-- SubQuantityOf: this milk subquantity of the milk stock; this butter portion subquantity of the butter block.
-- Containment: croissant in display case, eggs in refrigerator, cash in register drawer. Use carefully when the relation is spatial containment rather than true ontological parthood.
 
 ### 5. Perdurants and events
 

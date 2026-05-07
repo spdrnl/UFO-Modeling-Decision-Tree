@@ -1,5 +1,7 @@
 package PartWhole
 
+// These examples correspond to 04a-Relation.mermaid (Part-whole relations)
+
 // Core types
 kind Grill
 kind Kitchen

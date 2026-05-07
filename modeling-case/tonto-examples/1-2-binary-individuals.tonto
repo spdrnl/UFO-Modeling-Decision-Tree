@@ -1,13 +1,15 @@
 package BinaryIndividuals
 
-// Category: Formal relation at the individual level
+// These examples correspond to 01-Individual.mermaid (Binary branch)
+
+// Category: Relation at the individual level (Formal)
 // Example: John is older than Mary (both are instances of Person)
 kind Person
 // Formal relations are often modeled as associations with the «formal» stereotype
 @formal
 relation Person [1] -- isOlderThan -- [1] Person
 
-// Category: Material relation at the individual level
+// Category: Relation at the individual level (Material)
 // Example: John isMarriedTo Mary (their relation is grounded in an instance of Marriage)
 // Material relations are derived from relators.
 relator Marriage
@@ -24,14 +26,14 @@ relation Person [0..1] -- isMarriedTo -- [0..1] Person
 @derivation
 relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage
 
-// Category: Fundamental associations at the individual level
+// Category: Fundamental association individual
 // Example: Mary's patience inheresIn Mary (Patience depends on a Person bearer)
 quality Patience
 // 'inheresIn' is a fundamental association
 @characterization
 relation Patience [1] -- inheresIn -- [1] Person
 
-// Category: Part-whole at the individual level
+// Category: Relation at the individual level (Part-whole)
 // Example: this Grill componentOf this Kitchen in Sunrise Breakfast Place
 kind Grill
 kind Kitchen

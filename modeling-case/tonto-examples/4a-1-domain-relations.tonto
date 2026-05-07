@@ -1,5 +1,7 @@
 package DomainRelations
 
+// These examples correspond to 04a-Relation.mermaid (Domain relations)
+
 kind Person
 
 // Category: Formal relation

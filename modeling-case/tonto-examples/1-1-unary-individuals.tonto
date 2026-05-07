@@ -1,9 +1,16 @@
 package UnaryIndividuals
 
-// Category: Substantial individual
+// These examples correspond to 01-Individual.mermaid (Unary branch)
+
+// Category: Concrete substantial individual
 // Example: John
 // In Tonto, we model the type 'Person' that John is an instance of.
 kind Person
+
+// Category: Abstract individual (Value)
+// Example: $10.00
+// In Tonto, we model the datatype 'CurrencyAmount'
+datatype CurrencyAmount
 
 // Category: Moment individual
 // Example: Mary's patience
