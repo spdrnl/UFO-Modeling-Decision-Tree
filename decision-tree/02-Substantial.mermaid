@@ -1,21 +1,13 @@
 flowchart TD
     S0[Substantial type]
 
-    S0 --> S_CA{Concrete or \nAbstract?}
-
-    %% ABSTRACT SUBSTANTIALS
-    S_CA -->|Abstract| ABST[Abstract Type]
-    ABST --> ABST_Q{Fixed value \nspace?}
-    ABST_Q -->|Yes| ENUM[Enumeration]
-    ABST_Q -->|No| DT[Datatype]
-
-    %% CONCRETE SUBSTANTIALS
-    S_CA -->|Concrete| SS{"Sortal?\n(identity providing)"}
+    % CONCRETE SUBSTANTIALS
+    S0 --> SS{"Sortal?\n(identity providing)"}
 
     SS -->|Yes| S1{"Rigid?\n(non-changeable)"}
     SS -->|No| M_X{"Rigid,\nsemi-rigid,\nnon-rigid?\n(changeability)"}
 
-    %% Sortals
+    % Sortals
     S1 -->|Yes| RG{Ultimate \nsortal \nor \nsubkind?}
     S1 -->|No| DR{Relationally\ndependent?}
 
@@ -28,7 +20,7 @@ flowchart TD
     DR -->|Yes| RO[Role]
     DR -->|No| PH[Phase]
 
-    %% Non-Sortals (Mixins)
+    % Non-Sortals (Mixins)
     M_X -->|Rigid| CAT[Category]
     M_X -->|Semi-rigid| MIX[Semi-Rigid Mixin]
     M_X -->|Non-rigid| M_DX{Relationally\ndependent?}
@@ -36,13 +28,7 @@ flowchart TD
     M_DX -->|Yes| RMX[RoleMixin]
     M_DX -->|No| PMX[PhaseMixin]
 
-    %% EXAMPLE BOXES + LINKS
-    DT_ex("e.g., CurrencyAmount, \nTemperatureValue, \nRatingValue"):::example
-    DT --> DT_ex
-
-    ENUM_ex("e.g., DayOfWeek(Mon, Tue...), \nTableState(Clean, Dirty)"):::example
-    ENUM --> ENUM_ex
-
+    % EXAMPLE BOXES + LINKS
     KND_ex("e.g., Person, BreakfastPlace, \nSupplierCompany"):::example
     KND --> KND_ex
 
@@ -73,19 +59,17 @@ flowchart TD
     PH_ex("e.g., Child, Adult"):::example
     PH --> PH_ex
 
-    %% CLASSES
+    % CLASSES
     classDef example fill:#BBBBBB,stroke:#111827,stroke-width:1px,color:#ffffff;
     classDef generic fill:#ffffff,stroke:#333,stroke-width:2px,color:#000;
     classDef substantial fill:#dcfce7,stroke:#dcfce7,stroke-width:2px,color:#000;
     classDef substantialId fill:#dcfce7,stroke:#16a34a,stroke-width:2px,color:#000;
     classDef substantialNonId fill:#dcfce7,stroke:#16a34a,stroke-width:2px,stroke-dasharray: 5 3,color:#000;
-    classDef abstract fill:#f3f4f6,stroke:#9ca3af,stroke-width:2px,color:#000;
 
-    %% generic / neutral nodes
-    class S_CA,ABST_Q,SS,S1,M_X,RG,US,DR,M_SR,M_DX generic;
+    % generic / neutral nodes
+    class SS,S1,M_X,RG,US,DR,M_SR,M_DX generic;
 
-    %% substantial subtree colors
+    % substantial subtree colors
     class KND,COL,QTY substantialId;
     class SK,RO,PH substantialNonId;
     class S0,CAT,RMX,PMX,MIX substantial;
-    class ABST,DT,ENUM abstract;

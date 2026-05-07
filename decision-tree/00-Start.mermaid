@@ -21,10 +21,18 @@ flowchart TD
     TFA --> TFA_ex("e.g., Mary characterizedBy Patience, \nMarriage mediates Person"):::example
 
     U0 -->|Higher| UH[Higher-order \ntype]
-    U0 -->|1st-order| U1{Endurant \nor \nperdurant?}
+    U0 -->|1st-order| U1{Concrete \nor \nabstract?}
 
-    U1 --> E0[Endurant \ntype]
-    U1 --> P0[Perdurant \ntype]
+    %% ABSTRACT TYPES
+    U1 -->|Abstract| ABST[Abstract Type]
+    ABST_ex("e.g., CurrencyAmount, \nDayOfWeek"):::example
+    ABST --> ABST_ex
+
+    %% CONCRETE TYPES
+    U1 -->|Concrete| C0{Endurant \nor \nperdurant?}
+
+    C0 --> E0[Endurant \ntype]
+    C0 --> P0[Perdurant \ntype]
 
     E0 --> E1{Independent?}
     E1 -->|Yes| S0[Substantial \ntype]
@@ -49,6 +57,7 @@ flowchart TD
     classDef relator fill:#fdba74,stroke:#ea580c,stroke-width:2px,color:#000;
     classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
     classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
+    classDef abstract fill:#f3f4f6,stroke:#9ca3af,stroke-width:2px,color:#000;
 
     %% universal branch class assignments
     class TFA fundamental;
@@ -56,10 +65,11 @@ flowchart TD
     class TDR relator;
 
     %% generic / neutral nodes
-    class A,B,T0,U0,U1,UH,E0,E1,R0,TR1 generic;
+    class A,B,T0,U0,U1,UH,E0,E1,R0,TR1,C0 generic;
     class I generic;
 
     %% leaf colors
     class P0 perdurant;
     class S0 substantial;
     class M0 intrinsic;
+    class ABST abstract;
