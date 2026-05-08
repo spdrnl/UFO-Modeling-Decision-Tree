@@ -4,7 +4,12 @@ package AbstractTypes
 
 // Category: Datatype
 // Used as value space for qualities such as BankBalance
-datatype CurrencyAmount
+datatype Decimal
+datatype String
+datatype CurrencyAmount {
+    amount: Decimal [1]
+    currency: String [1]
+}
 
 // Category: Enumeration
 // Used as value space for nominal qualities such as TableCleanliness
