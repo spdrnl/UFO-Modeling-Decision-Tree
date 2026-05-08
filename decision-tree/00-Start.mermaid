@@ -8,7 +8,10 @@ flowchart TD
     B -->|Universal| T0{Unary or \nbinary type?}
 
     %% TYPES – UNARY (CONCEPTS)
-    T0 -->|Unary| U0{1st-order \nor \nhigher?}
+    T0 -->|Unary| CLS["Class\n(Generic Type)"]
+    CLS --> U0{1st-order \nor \nhigher?}
+
+    %% Binary types
     T0 -->|Binary| R0{"Relation\nor\nassociation?"}
 
     R0 --> TR1{"Domain \nor part-whole \nrelation?"}
