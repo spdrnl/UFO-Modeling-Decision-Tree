@@ -7,24 +7,23 @@ kind BreakfastPlace
 quantity Coffee
 
 // --- 3.1 Qualities ---
-
-// Perceivable quality: color of cafe sign, smell of coffee, temperature of coffee
-quality CafeSignColor
-quality CoffeeSmell
-quality CoffeeTemperature
+category Quality of qualities
+quality CafeSignColor specializes Quality
+quality CoffeeSmell specializes Quality
+quality CoffeeTemperature specializes Quality
 @characterization
 relation CoffeeTemperature [1] -- inheresIn -- [1] Coffee
 
 // Non-perceivable quality: cafe's bank balance, John's age, restaurant tax rate
-quality BankBalance
-quality PersonAge
-quality RestaurantTaxRate
+quality BankBalance specializes Quality
+quality PersonAge specializes Quality
+quality RestaurantTaxRate specializes Quality
 @characterization
 relation BankBalance [1] -- inheresIn -- [1] BreakfastPlace
 
 // Nominal quality: order status, table cleanliness
 enum TableState { Clean, Dirty }
-quality TableCleanliness
+quality TableCleanliness specializes Quality
 @characterization
 relation TableCleanliness [1] -- inheresIn -- [1] BreakfastPlace
 

@@ -4,18 +4,18 @@ package SubstantialTypes
 
 // --- 2.1 Ultimate Sortals ---
 
-// Kind: Person, BreakfastPlace, SupplierCompany
-kind Person
-kind BreakfastPlace
-kind SupplierCompany
+// Kind (Functional complex): Person, BreakfastPlace, SupplierCompany
+kind Person of functional-complexes
+kind BreakfastPlace of functional-complexes
+kind SupplierCompany of functional-complexes
 
 // Collective: StaffTeam
-collective StaffTeam
+collective StaffTeam of collectives
 
 // Quantity: Coffee, Milk, Batter
-quantity Coffee
-quantity Milk
-quantity Batter
+quantity Coffee of quantities
+quantity Milk of quantities
+quantity Batter of quantities
 
 // --- 2.2 Rigid Specializations ---
 

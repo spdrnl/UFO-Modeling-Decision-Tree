@@ -6,13 +6,14 @@ flowchart TD
 
     %% UNIVERSALS (TYPES)
     B -->|Universal| T0{Unary or \nbinary type?}
-
-    %% TYPES – UNARY (CONCEPTS)
-    T0 -->|Unary| CLS["Class\n(Generic Type)"]
+    
+    %% UNARY BRANCH
+    T0 -->|Unary| CLS["Generic Type\n(class)"]
     CLS --> U0{1st-order \nor \nhigher?}
-
-    %% Binary types
-    T0 -->|Binary| R0{"Relation\nor\nassociation?"}
+    
+    %% BINARY BRANCH
+    T0 -->|Binary| REL["Generic Link\n(relation)"]
+    REL --> R0{"Relation\nor\nassociation?"}
 
     R0 --> TR1{"Domain \nor part-whole \nrelation?"}
     TR1 --> TDR[Domain \nrelation]

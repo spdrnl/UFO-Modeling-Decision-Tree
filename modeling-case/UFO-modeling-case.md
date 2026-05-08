@@ -142,6 +142,7 @@ These examples correspond to `04a-Relation.mermaid`.
 - SubQuantityOf: this milk subquantity of the milk stock; this butter portion subquantity of the butter block.
 - Containment: croissant in display case, eggs in refrigerator, cash in register drawer. Use carefully when the relation is spatial containment rather than true ontological parthood.
 
+
 ### 4b. Fundamental associations
 
 These examples correspond to `04b-Association.mermaid`.
@@ -209,7 +210,7 @@ Specialized properties that describe the nature of a relationship:
 #### X.3 Refined class distinctions
 
 - Historical role: A role that an entity played in the past and is still identified by, even if it no longer exists. E.g., `DeceasedPerson`.
-- Extrinsic mode: A way of being that depends on another entity. E.g., a `Debt` that a person owes to a bank.
+- Extrinsic mode: A way of being that inheres in one entity but depends on another. E.g., a `Debt` that a person owes to a bank, or a `CookingFunction` that a `KitchenSite` has because of its relationship to an `Alcove` or a `Person`.
 - Intrinsic mode: a way of being that depends only on its bearer, such as a person's patience.
 - Historical role mixin: a non-sortal grouping for entities that share a historically dependent role.
 
