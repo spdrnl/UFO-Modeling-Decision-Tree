@@ -51,10 +51,16 @@ extrinsicMode ReservationRight
 relation SupplierObligation [1] -- inheresIn -- [1] Person
 
 // Mode with internal structure
-datatype CurrencyAmount
+datatype Date
+datatype Decimal
+datatype String
+datatype CurrencyAmount {
+    amount: Decimal [1]
+    currency: String [1]
+}
 mode RentObligation {
-    dueDate: Date
-    amount: CurrencyAmount
+    dueDate: Date [1]
+    amount: CurrencyAmount [1]
 }
 
 // --- 3.3 Relators ---

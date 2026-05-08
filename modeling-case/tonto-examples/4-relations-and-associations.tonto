@@ -66,7 +66,12 @@ relation Patience [1] -- inheresIn -- [1] Person
 
 // Structuration: CoffeeTemperature structuredBy TemperatureValue
 quality CoffeeTemperature
-datatype TemperatureValue
+datatype Decimal
+datatype String
+datatype TemperatureValue {
+    magnitude: Decimal [1]
+    unit: String [1]
+}
 @characterization
 relation CoffeeTemperature [1] -- inheresIn -- [1] Coffee
 @value
