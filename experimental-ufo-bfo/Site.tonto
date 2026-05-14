@@ -1,0 +1,31 @@
+package KitchenSiteExample
+
+category Site of functional-complexes
+
+// The general function type is a Category restricted to extrinsic modes
+category SiteFunction of extrinsic-modes
+
+@characterization
+relation SiteFunction [1..*] -- inheresIn -- [1] Site
+
+// The specific function is an Extrinsic Mode
+kind KitchenSite specializes Site
+extrinsicMode CookingFunction specializes SiteFunction
+
+@characterization
+relation CookingFunction [1] -- inheresIn -- [1] KitchenSite
+
+category PhysicalObject of functional-complexes
+kind Alcove specializes PhysicalObject
+kind Person specializes PhysicalObject
+kind Fridge specializes PhysicalObject
+
+// The Extrinsic Mode depends on an external entity (the material host or an agent)
+@externalDependence
+relation SiteFunction [0..*] -- dependsOn -- [1] PhysicalObject
+
+@containment
+relation Alcove (container) [1] -- contains -- [1] KitchenSite (site)
+
+@containment
+relation KitchenSite (container) [1] -- contains -- [0..*] PhysicalObject (occupant)
