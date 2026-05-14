@@ -29,21 +29,19 @@ To make modeling as efficient as possible, this decision tree follows a few desi
 - Situation: Includes situation individuals from recent UFO extensions, representing states of affairs that trigger or result from events.
 
 ## Getting Started
+There are several ways to get started:
+- Start browsing the decision tree.
+- Read an overview of UFO A and B in the guideline document.
+- Work through the modeling case provided with its textual Tonto UFO models.
+
+### Start browsing the decision tree
 A PNG rendering of the tree is provided in the `decision-tree/png` folder.
 1. Start here: Open `00-Start.png` to classify your term as Individual or Universal
 2. For Types: Follow the Universal branch through Substantial, Moment, or Perdurant trees
 3. For Instances: Open `01-Individual.png` to navigate instance-level entities and relations
 4. Examples provided: Each decision node includes concrete examples to guide you
 
-## File Structure
-- `00-Start.mermaid` - Top-level: Individual vs. Universal
-- `01-Individual.mermaid` - Instance-level entities and relations
-- `02-Substantial.mermaid` - Types: Kinds, Roles, Phases, Categories, etc.
-- `03-Moment.mermaid` - Types: Qualities, Modes, Relators
-- `04-Relational.mermaid` - Relations and fundamental associations
-- `05-Perdurant.mermaid` - Types: Events, Actions, Processes, Activities
-
-### Example: Modeling "John's Marriage to Mary"
+#### A small example: Modeling "John's Marriage to Mary"
 
 As a Type (Universal):
 
@@ -55,7 +53,7 @@ As a Type (Universal):
 - Intrinsic or Relator? → Relator (mediates relationship)
 
 
-  → Result: Relator type
+→ Result: Relator type
 
 As an Instance (Individual):
 
@@ -66,6 +64,12 @@ As an Instance (Individual):
 
   → Result: Moment individual (specifically: a relator individual)
 
+### Read an overview of UFO A and B in the guideline document
+The guideline document is a textual introductionary overview of UFO-A and B. It provides background information and definitions that accompany the decision tree.
+
+### Work through the modeling case
+The modeling case includes a Tonto UFO model that reflects the fictional "Sunrise Breakfast Place" run by John and Mary. The modeling case can be found in the `modeling-case` folder.
+
 ## Theoretical Liberties and Streamlining
 To keep the tree accessible for rapid modeling, some strategic "corner-cutting" was applied where a formal distinction might cause "decision fatigue" for beginners:
 
@@ -73,6 +77,8 @@ To keep the tree accessible for rapid modeling, some strategic "corner-cutting" 
 - Mode/Disposition Grouping: Combined into a single node for a smoother entry point.
 - Abstract Simplification: Using "Fixed value space" as a practical rule of thumb to distinguish between Datatypes and Enumerations.
 - Domain Relation: Used as an umbrella term for both Formal and Material relations to match common modeling practice. These relations are about the domain that is modeled.
+
+In the guideline document there is a more elaborate explanation of the different parts of the tree that provide a deeper understanding.
 
 ## Learn More
 - [Official UFO Documentation](https://nemo.inf.ufes.br/projetos/ufo/)
