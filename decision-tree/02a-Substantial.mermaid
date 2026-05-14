@@ -13,9 +13,9 @@ flowchart TD
 
     RG -->|Subkind| SK[Subkind]
     RG -->|Ultimate sortal| US{"Object/\nCollective/\nQuantity?"}
-    US -->|"Object\n(Functional complex)"| KND["Kind"]
-    US -->|Collective| COL[Collective]
-    US -->|Quantity| QTY["Quantity\n(portion)"]
+    US -->|"Functional complex"| KND["Kind\n(Functional complex)"]
+    US -->|Collective| COL["Collective\n(Collective kind)"]
+    US -->|Quantity| QTY["Quantity\n(Quantity kind)"]
 
     DR -->|Yes| RO[Role]
     DR -->|No| PH[Phase]
@@ -38,7 +38,7 @@ flowchart TD
     COL_ex("e.g., StaffTeam, \nSupplierConsortium"):::example
     COL --> COL_ex
 
-    QTY_ex("e.g., Coffee, Milk, Batter"):::example
+    QTY_ex("e.g., A portion of Coffee, Milk, Batter"):::example
     QTY --> QTY_ex
 
     CAT_ex("e.g., PhysicalObject, \nCommercialEstablishment"):::example
