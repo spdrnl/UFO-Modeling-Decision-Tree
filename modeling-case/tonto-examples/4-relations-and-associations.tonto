@@ -11,20 +11,21 @@ event BreakfastService
 // --- 4a.1 Domain Relations ---
 
 // Formal relation: John is older than Mary, Sunrise is closer to market
-@formal
-relation Person [1] -- isOlderThan -- [1] Person
+//@formal
+// relation Person [1] -- isOlderThan -- [1] Person
 
-// Material relation: John is married to Mary, Mary employs Alex
-relator Marriage
-@mediation
-relation Marriage [1] -- mediatesSpouse1 -- [1] Person
-@mediation
-relation Marriage [1] -- mediatesSpouse2 -- [1] Person
+// // Material relation: John is married to Mary, Mary employs Alex
+// relator Marriage
+// @mediation
+// relation Marriage [1] -- mediatesSpouse1 -- [1] Person
+// @mediation
+// relation Marriage [1] -- mediatesSpouse2 -- [1] Person
 
-@material
-relation Person [0..1] -- isMarriedTo -- [0..1] Person
-@derivation
-relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage
+// @material
+// relation Person [0..1] -- isMarriedTo -- [0..1] Person
+
+// @derivation
+// relation Person.isMarriedTo [1] -- derivedFrom -- [1] Marriage
 
 // --- 4a.2 Part-whole Relations ---
 

@@ -25,6 +25,8 @@ flowchart TD
     TFA --> TFA_ex("e.g., Mary characterizedBy Patience, \nMarriage mediates Person"):::example
 
     U0 -->|Higher| UH[Higher-order \ntype]
+    UH_ex("e.g., PersonType, \nSpecies, \nEventType"):::example
+    UH --> UH_ex
     U0 -->|1st-order| U1{Concrete or \nabstract concept?}
 
     %% ABSTRACT TYPES
@@ -62,6 +64,7 @@ flowchart TD
     classDef meronymic fill:#fef08a,stroke:#eab308,stroke-width:2px,color:#000;
     classDef fundamental fill:#e9d5ff,stroke:#a855f7,stroke-width:2px,color:#000;
     classDef abstract fill:#f3f4f6,stroke:#9ca3af,stroke-width:2px,color:#000;
+    classDef higher fill:#fce7f3,stroke:#db2777,stroke-width:2px,color:#000;
 
     %% universal branch class assignments
     class TFA fundamental;
@@ -69,8 +72,9 @@ flowchart TD
     class TDR relator;
 
     %% generic / neutral nodes
-    class A,B,T0,U0,U1,UH,E0,E1,R0,TR1,C0 generic;
+    class A,B,T0,U0,U1,E0,E1,R0,TR1,C0,REL,CLS generic;
     class I generic;
+    class UH higher;
 
     %% leaf colors
     class P0 perdurant;
