@@ -1,0 +1,12 @@
+diagram "0 Start Diagram" {
+  source "./0-start.tonto"
+  import StartExamples
+
+  direction LR
+  stereotypes true
+  attributes true
+  external false
+  datatypes true
+
+  viewport { x 0 y 0 zoom 1 }
+}
