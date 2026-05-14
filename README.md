@@ -65,7 +65,7 @@ As an Instance (Individual):
   → Result: Moment individual (specifically: a relator individual)
 
 ### Read an overview of UFO A and B in the guideline document
-The guideline document is a textual introductionary overview of UFO-A and B. It provides background information and definitions that accompany the decision tree.
+The guideline document is a textual introductionary overview of UFO-A and B. It provides background information and definitions that go with the decision tree. The guideline document can be found in the `modeling-guideline` folder.
 
 ### Work through the modeling case
 The modeling case includes a Tonto UFO model that reflects the fictional "Sunrise Breakfast Place" run by John and Mary. The modeling case can be found in the `modeling-case` folder.

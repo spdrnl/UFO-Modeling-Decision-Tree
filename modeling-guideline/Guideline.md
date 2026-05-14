@@ -19,7 +19,7 @@ The following examples give broad coverage while staying easy to remember.
 2. Husband / Wife / Cook / Customer as Roles.
 3. Adult as Phase.
 4. StaffTeam as Collective.
-5. Coffee as Quantity.
+5. A portion of coffee as Quantity.
 6. John’s cooking skill as Mode.
 7. Mary’s patience as Quality.
 8. Marriage as Relator.
@@ -73,7 +73,7 @@ The substantial-type branch uses meta properties to decide which stereotype a ty
 
 ### How the Properties Lead to Stereotypes
 
-For substantial types, the key path is: first ask whether the type is a **sortal**. If it is a sortal, ask whether it is rigid or anti-rigid. Rigid sortals are either ultimate sortals, such as **Kind**, **Collective**, and **Quantity**, or specializations such as **Subkind**. Anti-rigid sortals are split by dependence: relational dependence gives **Role**, while intrinsic state dependence gives **Phase**.
+For substantial types, the key path is: first ask whether the type is a **sortal**. If it is a sortal, ask whether it is rigid or anti-rigid. Rigid sortals are either ultimate sortals, such as **Kind (Functional complex)**, **Collective (Collective kind)**, and **Quantity (Quantity kind)**, or specializations such as **Subkind**. Anti-rigid sortals are split by dependence: relational dependence gives **Role**, while intrinsic state dependence gives **Phase**.
 
 If a substantial type is not a sortal, it does not provide identity by itself. Rigid non-sortals become **Category**. Semi-rigid non-sortals become **Semi-Rigid Mixin**. Anti-rigid non-sortals become **RoleMixin** or **PhaseMixin**, again depending on whether the condition is relational or intrinsic.
 
@@ -84,7 +84,7 @@ For perdurants, the key questions are whether the event is **atomic** or **compl
 For binary universals, UFO separates ordinary domain links from structural modeling associations. Domain links include **formal relations**, **material relations**, and **part-whole relations**. Fundamental associations, such as **Characterization**, **Mediation**, **Participation**, and **BringsAbout**, express the ontological structure behind those domain links.
 
 ## Glossary per decision subtree
-In this section a glossary is provided for each decision subtree. The function of the glossart is to provide a link between the description of the UFO Meta Mode and the graphical decision trees. The style of the trees is very succint for layout reasons. In this section additional clarification is provided.
+In this section a glossary is provided for each decision subtree. The function of the glossary is to provide a link between the description of the UFO Meta Model and the graphical decision trees. The style of the trees is very succinct for layout reasons. In this section additional clarification is provided.
 
 Also, in the modeling case, per subtree Tonto textual UFO models are provided per subtree for further illustration.
 
@@ -117,9 +117,9 @@ Also, in the modeling case, per subtree Tonto textual UFO models are provided pe
 | --- | --- |
 | Sortal | A type that carries or inherits identity criteria for its instances. |
 | Ultimate sortal | A sortal that supplies its own identity principle. |
-| Kind | A rigid ultimate sortal for functional complexes, such as persons or organizations. |
-| Collective | A rigid ultimate sortal for collections whose members play a unifying role. |
-| Quantity | A rigid ultimate sortal for portions of matter. |
+| Kind (Functional complex) | A rigid ultimate sortal for functional complexes, such as persons or organizations. |
+| Collective (Collective kind) | A rigid ultimate sortal for collections whose members play a unifying role. |
+| Quantity (Quantity kind) | A rigid ultimate sortal for portions of matter. |
 | Subkind | A rigid specialization of a kind, collective, or quantity. |
 | Role | An anti-rigid sortal whose application depends on a relational or contextual condition. |
 | Phase | An anti-rigid sortal whose application depends on an intrinsic state. |
